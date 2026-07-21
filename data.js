@@ -21,9 +21,12 @@
 window.SITE = {
   author: 'Sarthak Mohanty',
   role: 'Quantitative research · applied behavioural science',
-  // Sits where the eyebrow used to, above the name on the drawer front.
+  // Sits where the eyebrow used to, above the greeting on the drawer front.
   quote: 'I almost wish I hadn’t gone down that rabbit-hole—and yet—and yet—it’s rather curious, you know, this sort of life!',
-  bio: 'I like understanding anything that piques my curiosity. How I like to understand it is by researching and analysing it. How I like to analyse it is through data — numeric and non-numeric alike — because I believe the story it outlines can be read by anyone curious enough to look. This site is where I document my rabbit-holes.',
+  quoteCite: '— Lewis Carroll, Alice’s Adventures in Wonderland, p. 46',
+  // Sentence punctuation here gets the accent colour automatically (see Cabinet).
+  greeting: 'Hi! I’m Sarthak.',
+  bio: 'I like understanding anything that piques my curiosity. How I like to understand something is by researching it. How I like to research something is through analyzing data (numeric and non-numeric alike) on it, because I believe the story data outlines can be read by anyone curious enough to look. This site is where I document my rabbit-holes.',
   stats: [],
 
   TABS: [

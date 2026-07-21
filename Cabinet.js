@@ -2,6 +2,12 @@
 // slides the folder tabs up out of the box. Tabs fold together and pop up on
 // hover; the name panel is the drawer FRONT, with side + back rails forming the
 // drawer box. Tabs come from window.SITE.TABS — add one there and it appears here.
+// Wraps sentence punctuation so it can carry the accent colour. Apostrophes are
+// deliberately excluded — colouring the one inside "I'm" just reads as a typo.
+const accentPunct = s => s.split(/([!?.,;:—])/).map((part, i) => /^[!?.,;:—]$/.test(part) ? /*#__PURE__*/React.createElement("span", {
+  className: "p",
+  key: i
+}, part) : part);
 function Cabinet({
   onOpen,
   open,
@@ -14,7 +20,9 @@ function Cabinet({
     className: "cab-head"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "k"
-  }, "/ PERSONAL INDEX \u2014 SELECT A DRAWER"), /*#__PURE__*/React.createElement("h1", null, "What are you looking for?"))), /*#__PURE__*/React.createElement("div", {
+  }, "/ PERSONAL INDEX \u2014 SELECT A DRAWER"), /*#__PURE__*/React.createElement("h1", null, "What are you looking for?")), /*#__PURE__*/React.createElement("div", {
+    className: "rt"
+  }, "QUANTITATIVE RESEARCH", /*#__PURE__*/React.createElement("br", null), "SOCIAL SCIENCE \xB7 APPLIED BEHAVIOURAL SCIENCE")), /*#__PURE__*/React.createElement("div", {
     className: 'drawer' + (open ? ' open' : '')
   }, /*#__PURE__*/React.createElement("div", {
     className: "drawerbox"
@@ -65,9 +73,9 @@ function Cabinet({
     className: "d"
   })), /*#__PURE__*/React.createElement("p", {
     className: "front-quote"
-  }, S.quote), /*#__PURE__*/React.createElement("h2", null, S.author, /*#__PURE__*/React.createElement("span", {
-    className: "p"
-  }, ".")), /*#__PURE__*/React.createElement("p", {
+  }, S.quote, /*#__PURE__*/React.createElement("span", {
+    className: "front-cite"
+  }, S.quoteCite)), /*#__PURE__*/React.createElement("h2", null, accentPunct(S.greeting)), /*#__PURE__*/React.createElement("p", {
     className: "bio"
   }, S.bio))));
 }

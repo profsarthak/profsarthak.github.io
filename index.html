@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="./styles.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+/* Opening the drawer makes the page outgrow the viewport, and the scrollbar
+   that appears would otherwise shrink the layout mid-animation. */
+html{scrollbar-gutter:stable}
 body{background:var(--bone-dk);color:var(--ink-900);font-family:var(--font-body)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
@@ -19,6 +22,7 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .cab-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;gap:20px}
 .cab-head .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;opacity:.6}
 .cab-head h1{font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3.4vw,38px);letter-spacing:-.03em;line-height:.98;margin-top:10px;text-transform:uppercase}
+.cab-head .rt{font-family:var(--font-mono);font-size:11px;text-align:right;opacity:.6;line-height:1.7}
 /* drawer box */
 .drawer{position:relative;margin-top:6px}
 .drawerbox{position:relative;padding:16px 18px 18px}
@@ -45,7 +49,9 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .tab:hover .name{color:var(--paper)}.tab:hover .desc{opacity:.7}.tab:hover .num{color:var(--orange-200)}
 .tab:hover .arw{opacity:1;transform:translateX(4px)}
 /* drawer front (the pull face) */
-.drawerfront{position:relative;margin:0 -14px;border:1.5px solid var(--ink-900);background:var(--ink-900);color:var(--paper);padding:42px 44px 34px;overflow:hidden;box-shadow:var(--shadow-lg)}
+/* Right padding reserves the dither strip. The bio is right-aligned, so its
+   edge has to stop before the orange rather than run under it. */
+.drawerfront{position:relative;margin:0 -14px;border:1.5px solid var(--ink-900);background:var(--ink-900);color:var(--paper);padding:42px 268px 34px 44px;overflow:hidden;box-shadow:var(--shadow-lg)}
 .drawerfront{transition:transform .5s var(--ease-standard),box-shadow .5s var(--ease-standard)}
 .drawer.open .drawerfront{transform:translateY(7px)}
 /* The pull. Grip keeps the old handle's look; the label makes it read as a control. */
@@ -59,11 +65,12 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .drawerfront .dith .d{position:absolute;inset:0;background-image:radial-gradient(var(--ink-900) 32%,transparent 33%);background-size:12px 12px;-webkit-mask:linear-gradient(255deg,#000,transparent 78%);mask:linear-gradient(255deg,#000,transparent 78%)}
 /* Same mono/orange treatment the eyebrow had, minus the uppercasing and wide
    tracking — a 117-character quote needs to stay readable. */
-.drawerfront .front-quote{font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;line-height:1.7;color:var(--orange-500);max-width:600px;margin-top:10px}
+.drawerfront .front-quote{font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;line-height:1.7;color:var(--orange-500);max-width:600px;margin-top:10px;text-align:left}
+.drawerfront .front-cite{display:block;margin-top:7px;font-size:11px;letter-spacing:.08em;opacity:.7}
 /* Clamped so the single line survives narrow viewports instead of overflowing. */
-.drawerfront h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,6.15vw,74px);line-height:1;letter-spacing:-.045em;text-transform:uppercase;margin-top:16px;white-space:nowrap}
+.drawerfront h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,6.15vw,74px);line-height:1;letter-spacing:-.045em;text-transform:uppercase;margin-top:16px;white-space:nowrap;text-align:center}
 .drawerfront h2 .p{color:var(--orange-500)}
-.drawerfront .bio{font-family:var(--font-body);font-size:15px;line-height:1.7;max-width:620px;color:#c9c9be;margin:22px auto 0;text-align:center}
+.drawerfront .bio{font-family:var(--font-body);font-size:15px;line-height:1.7;max-width:620px;color:#c9c9be;margin:22px 0 0 auto;text-align:right}
 /* Narrow screens: the dither panel is a fixed 230px and would sit on top of the
    single-line name, so it narrows and the name's floor drops to match. */
 @media (max-width:760px){
