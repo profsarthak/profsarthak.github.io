@@ -90,19 +90,15 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .dcols aside .ar span:first-child{color:var(--orange-600)}.dcols aside .ar span:last-child{color:var(--ink-900);opacity:.65;text-align:right}
 .foot{border-top:1.5px solid var(--ink-900);margin-top:56px;padding:26px 0;font-family:var(--font-mono);font-size:11px;display:flex;justify-content:space-between;opacity:.6}
 </style>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/lucide@0.451.0/dist/umd/lucide.min.js"></script>
 <script src="./_ds_bundle.js"></script>
 <script src="./data.js"></script>
 </head>
 <body><div id="root"></div>
-<script type="text/babel" src="./Cabinet.jsx"></script>
-<script type="text/babel" src="./Pages.jsx"></script>
-<script type="text/babel" src="./App.jsx"></script>
-<script type="text/babel" data-presets="react">
-  ReactDOM.createRoot(document.getElementById('root')).render(<window.App />);
-  setTimeout(() => window.lucide && window.lucide.createIcons(), 120);
-</script>
+<script src="./Cabinet.js"></script>
+<script src="./Pages.js"></script>
+<script src="./App.js"></script>
+<script src="./boot.js"></script>
 </body></html>
