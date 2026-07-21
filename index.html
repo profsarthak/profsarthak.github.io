@@ -1,7 +1,7 @@
 <!-- @dsCard group="Personal Website" viewport="1180x760" name="Personal website — file cabinet" subtitle="Tabbed index → Projects/Blog grids, detail pages" -->
 <!-- @startingPoint section="Personal Website" subtitle="File-cabinet personal site (tabs → grid/list/detail)" viewport="1180x900" -->
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sarthak Vedant — Personal Website</title>
+<title>Sarthak's Site</title>
 <link rel="stylesheet" href="./styles.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -18,15 +18,22 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .cab{padding:44px 26px 60px;max-width:1180px;margin:0 auto}
 .cab-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;gap:20px}
 .cab-head .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;opacity:.6}
-.cab-head h1{font-family:var(--font-display);font-weight:700;font-size:38px;letter-spacing:-.03em;line-height:.98;margin-top:10px;text-transform:uppercase}
-.cab-head .rt{font-family:var(--font-mono);font-size:11px;text-align:right;opacity:.6;line-height:1.7}
+.cab-head h1{font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3.4vw,38px);letter-spacing:-.03em;line-height:.98;margin-top:10px;text-transform:uppercase}
 /* drawer box */
 .drawer{position:relative;margin-top:6px}
 .drawerbox{position:relative;padding:16px 18px 18px}
 .railback{position:absolute;top:0;left:0;right:0;height:16px;background:var(--ink-900)}
 .rail{position:absolute;top:0;bottom:0;width:18px;background:var(--ink-900)}
 .rail.l{left:0}.rail.r{right:0}
-.folders{position:relative;display:flex;flex-direction:column}
+/* Drawer open/close. Animating grid-template-rows lets the box expand to the
+   tabs' real height; the inner element does the clipping. */
+.folders-clip{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease-standard)}
+.drawer.open .folders-clip{grid-template-rows:1fr}
+.folders-inner{overflow:hidden;min-height:0}
+/* Padding, not margin: the hover lift needs somewhere to go that the clip
+   won't cut off, and padding sits inside the overflow box. */
+.folders{position:relative;display:flex;flex-direction:column;padding-top:14px;opacity:0;transition:opacity .28s ease .08s}
+.drawer.open .folders{opacity:1}
 .tab{position:relative;border:1.5px solid var(--ink-900);background:var(--paper);height:66px;display:flex;align-items:center;padding:0 28px;margin-bottom:-1.5px;z-index:1;transition:transform .18s var(--ease-standard),background .18s,color .18s,box-shadow .18s}
 .tab .num{font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:var(--orange-500);width:60px;font-weight:700}
 .tab .name{font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-.02em;text-transform:uppercase}
@@ -39,14 +46,35 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .tab:hover .arw{opacity:1;transform:translateX(4px)}
 /* drawer front (the pull face) */
 .drawerfront{position:relative;margin:0 -14px;border:1.5px solid var(--ink-900);background:var(--ink-900);color:var(--paper);padding:42px 44px 34px;overflow:hidden;box-shadow:var(--shadow-lg)}
-.drawerfront .handle{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:120px;height:12px;border:1.5px solid var(--orange-200);border-radius:7px}
+.drawerfront{transition:transform .5s var(--ease-standard),box-shadow .5s var(--ease-standard)}
+.drawer.open .drawerfront{transform:translateY(7px)}
+/* The pull. Grip keeps the old handle's look; the label makes it read as a control. */
+.drawerfront .handle{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:13px;padding:5px 9px;z-index:3}
+.drawerfront .handle .grip{width:120px;height:12px;border:1.5px solid var(--orange-200);border-radius:7px;transition:background .18s,border-color .18s}
+.drawerfront .handle .hint{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--orange-200);opacity:.7;white-space:nowrap;transition:opacity .18s,color .18s}
+.drawerfront .handle:hover .grip{background:var(--orange-500);border-color:var(--orange-500)}
+.drawerfront .handle:hover .hint{opacity:1;color:var(--orange-500)}
+.drawerfront .handle:focus-visible{outline:2px solid var(--orange-500);outline-offset:4px}
 .drawerfront .dith{position:absolute;top:0;right:0;width:230px;height:100%;background:var(--orange-500);opacity:.92}
 .drawerfront .dith .d{position:absolute;inset:0;background-image:radial-gradient(var(--ink-900) 32%,transparent 33%);background-size:12px 12px;-webkit-mask:linear-gradient(255deg,#000,transparent 78%);mask:linear-gradient(255deg,#000,transparent 78%)}
-.drawerfront .front-eb{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;color:var(--orange-500);text-transform:uppercase;margin-top:8px}
-.drawerfront h2{font-family:var(--font-display);font-weight:700;font-size:74px;line-height:.9;letter-spacing:-.045em;text-transform:uppercase;margin-top:6px}
+/* Same mono/orange treatment the eyebrow had, minus the uppercasing and wide
+   tracking — a 117-character quote needs to stay readable. */
+.drawerfront .front-quote{font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;line-height:1.7;color:var(--orange-500);max-width:600px;margin-top:10px}
+/* Clamped so the single line survives narrow viewports instead of overflowing. */
+.drawerfront h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,6.15vw,74px);line-height:1;letter-spacing:-.045em;text-transform:uppercase;margin-top:16px;white-space:nowrap}
 .drawerfront h2 .p{color:var(--orange-500)}
-.drawerfront .bio{font-family:var(--font-body);font-size:15px;line-height:1.6;max-width:440px;color:#c9c9be;margin-top:18px;min-height:1.5em;outline:none}
-.drawerfront .bio:empty::before{content:'Add a short intro — click to edit.';color:#6a6a60}
+.drawerfront .bio{font-family:var(--font-body);font-size:15px;line-height:1.7;max-width:620px;color:#c9c9be;margin:22px auto 0;text-align:center}
+/* Narrow screens: the dither panel is a fixed 230px and would sit on top of the
+   single-line name, so it narrows and the name's floor drops to match. */
+@media (max-width:760px){
+  .cab{padding:28px 16px 44px}
+  /* Right padding reserves the dither strip, so every child clears it without
+     each needing its own max-width. */
+  .drawerfront{padding:38px 72px 26px 22px}
+  .drawerfront .dith{width:56px}
+  .drawerfront h2{font-size:clamp(20px,6.6vw,44px)}
+  .drawerfront .front-quote,.drawerfront .bio{max-width:none}
+}
 /* subpage */
 .subhead{border-bottom:1.5px solid var(--ink-900);background:var(--bone)}
 .subhead .wrap{padding:30px 26px 26px}

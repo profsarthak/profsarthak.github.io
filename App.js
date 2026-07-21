@@ -4,6 +4,9 @@ function App() {
   const [view, setView] = React.useState({
     v: 'cabinet'
   });
+  // Lives here, not in Cabinet: Cabinet unmounts on navigation, so local state
+  // would shut the drawer every time you came back to the index.
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [clock, setClock] = React.useState('');
   React.useEffect(() => {
     const tick = () => setClock(new Date().toLocaleTimeString('en-GB', {
@@ -43,7 +46,9 @@ function App() {
   }, "INDEX")), /*#__PURE__*/React.createElement("div", {
     className: "r"
   }, "SYS.TIME ", clock, " \xB7 IST UTC+5:30"))), view.v === 'cabinet' && /*#__PURE__*/React.createElement(window.Cabinet, {
-    onOpen: openSection
+    onOpen: openSection,
+    open: drawerOpen,
+    onToggle: setDrawerOpen
   }), view.v !== 'cabinet' && tab && /*#__PURE__*/React.createElement("div", {
     className: "sub"
   }, /*#__PURE__*/React.createElement("div", {

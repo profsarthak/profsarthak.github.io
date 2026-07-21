@@ -21,7 +21,9 @@
 window.SITE = {
   author: 'Sarthak Mohanty',
   role: 'Quantitative research · applied behavioural science',
-  bio: '', // blank + editable in the drawer front — the user fills this in
+  // Sits where the eyebrow used to, above the name on the drawer front.
+  quote: 'I almost wish I hadn’t gone down that rabbit-hole—and yet—and yet—it’s rather curious, you know, this sort of life!',
+  bio: 'I like understanding anything that piques my curiosity. How I like to understand it is by researching and analysing it. How I like to analyse it is through data — numeric and non-numeric alike — because I believe the story it outlines can be read by anyone curious enough to look. This site is where I document my rabbit-holes.',
   stats: [],
 
   TABS: [
