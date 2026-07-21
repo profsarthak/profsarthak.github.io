@@ -26,7 +26,7 @@ window.SITE = {
   quoteCite: '— Lewis Carroll, Alice’s Adventures in Wonderland, p. 46',
   // Sentence punctuation here gets the accent colour automatically (see Cabinet).
   greeting: 'Hi! I’m Sarthak.',
-  bio: 'I like understanding anything that piques my curiosity. How I like to understand something is by researching it. How I like to research something is through analyzing data (numeric and non-numeric alike) on it, because I believe the story data outlines can be read by anyone curious enough to look. This site is where I document my rabbit-holes.',
+  bio: 'I like understanding anything that piques my curiosity. How I understand something is by researching it. To research something, I analyze data (numeric and non-numeric alike) on it, because I believe the story data outlines can be read by anyone curious enough to look. This site is where I document my rabbit-holes.',
   stats: [],
 
   TABS: [
