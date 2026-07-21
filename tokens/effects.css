@@ -1,0 +1,40 @@
+/* EFFECTS — Technical Brutalist
+   Square corners, hard 1.5px ink borders, HARD offset shadows (no blur).
+   Hover = shift toward the shadow (translate); press = settle flat.
+   Calm, quick motion. No bounces. */
+:root{
+  /* radii — mostly square. Pill only for the Aeonik-style toggle/capsule. */
+  --radius-xs:0;
+  --radius-sm:0;
+  --radius-md:0;      /* buttons, inputs — square */
+  --radius-lg:0;      /* cards — square */
+  --radius-xl:0;
+  --radius-2xl:0;
+  --radius-pill:40px; /* capsule toggles / rings only */
+
+  /* borders — the brutalist hard line */
+  --bw:1.5px;
+  --border-hairline:1px solid var(--border-subtle);
+  --border-card:1.5px solid var(--ink-900);
+  --border-focus:1.5px solid var(--orange-500);
+
+  /* shadows — HARD offset, no blur, ink-coloured */
+  --shadow-xs:2px 2px 0 var(--ink-900);
+  --shadow-sm:3px 3px 0 var(--ink-900);
+  --shadow-card:5px 5px 0 var(--ink-900);
+  --shadow-lg:8px 8px 0 var(--ink-900);
+  --shadow-accent:5px 5px 0 var(--orange-500);
+  --shadow-focus:3px 3px 0 var(--orange-500);
+
+  /* motion */
+  --ease-standard:cubic-bezier(.2,.6,.2,1); /* @kind other */
+  --ease-out:cubic-bezier(.16,.84,.44,1); /* @kind other */
+  --dur-fast:110ms; /* @kind other */
+  --dur:170ms; /* @kind other */
+  --dur-slow:280ms; /* @kind other */
+  --transition:all var(--dur) var(--ease-standard); /* @kind other */
+
+  /* interaction — brutalist cards/buttons shift toward their shadow on hover */
+  --hover-shift:translate(-3px,-3px); /* @kind other */
+  --press-shift:translate(0,0); /* @kind other */
+}

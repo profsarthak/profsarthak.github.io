@@ -1,0 +1,74 @@
+/* COLORS — Sarthak Vedant · Technical Brutalist
+   Near-monochrome: bone paper + near-black ink + ONE hot orange accent.
+   Sage green as an alternate surface (Aeonik-style). Nulls read muted, not coloured. */
+:root{
+  /* ---- Ink (near-black) ---- */
+  --ink-950:#0d0d0b;
+  --ink-900:#161613;   /* PRIMARY INK — text, borders, dark surfaces */
+  --ink-800:#1c1c18;
+  --ink-700:#3a3a33;   /* secondary text on paper */
+  --ink-600:#4e4e45;
+  --ink-500:#5e5e54;   /* muted text */
+
+  /* ---- Paper / neutrals (warm bone) ---- */
+  --paper:#f4f3ec;     /* clean card surface */
+  --bone:#edece3;      /* default page background */
+  --bone-dk:#dcdccf;   /* sunken / deep page bg (folders read against this) */
+  --sage:#dfe2d0;      /* alternate surface — Aeonik green */
+  --sage-dk:#c9cabf;
+  --hair:#b7b6a8;      /* hairline on paper (dashed/secondary) */
+
+  /* ---- Accent: hot orange (the one colour) ---- */
+  --orange-700:#b53c12;
+  --orange-600:#cf4718;
+  --orange-500:#e8531d; /* PRIMARY ACCENT */
+  --orange-400:#f0764a;
+  --orange-200:#f2b48a; /* soft — dither highlights, on-dark accent text */
+  --orange-100:#fbe0d3;
+
+  /* ---- Null / muted signal (against-expectation, disabled) ---- */
+  --null-fg:#8a8a7e;    /* olive-grey; pair with str/dashed, never shouts */
+  --null-bg:#e4e3d8;
+
+  /* ================= SEMANTIC ALIASES ================= */
+  --text-strong:var(--ink-900);
+  --text-body:var(--ink-700);
+  --text-muted:var(--ink-500);
+  --text-faint:var(--null-fg);
+  --text-accent:var(--orange-600);
+  --text-on-dark:#edece3;
+  --text-on-dark-muted:#8a8a7e;
+
+  --surface-page:var(--bone);
+  --surface-page-deep:var(--bone-dk);
+  --surface-card:var(--paper);
+  --surface-card-warm:var(--sage);
+  --surface-sunken:var(--null-bg);
+  --surface-inverse:var(--ink-900);
+  --surface-inverse-deep:var(--ink-950);
+
+  --border-subtle:var(--hair);
+  --border-strong:var(--ink-900);   /* brutalist default: hard black line */
+  --border-on-dark:#34342c;
+
+  --accent:var(--orange-500);
+  --accent-hover:var(--orange-600);
+  --accent-soft:var(--orange-100);
+  --accent-on-dark:var(--orange-200);
+  --signal-null:var(--null-fg);
+  --signal-null-soft:var(--null-bg);
+
+  /* data-viz sequence: highlight orange, then ink shades, muted null */
+  --viz-1:var(--orange-500);
+  --viz-2:var(--ink-900);
+  --viz-3:var(--ink-500);
+  --viz-4:var(--hair);
+  --viz-null:var(--null-fg);
+
+  --link:var(--orange-600);
+  --link-hover:var(--orange-700);
+
+  --selection-bg:var(--orange-500);
+  --selection-fg:#ffffff;
+}
+::selection{background:var(--selection-bg);color:var(--selection-fg)}

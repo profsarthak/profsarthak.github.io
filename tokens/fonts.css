@@ -1,0 +1,5 @@
+/* Webfonts — all genuine Google Fonts (no substitutions).
+   Space Grotesk = display (tight caps headlines)
+   Space Mono + JetBrains Mono = technical chrome (labels, section numbers, data, metadata)
+   IBM Plex Sans = long-form body */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
