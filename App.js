@@ -86,10 +86,10 @@ function App() {
 }
 // Per-section intro copy. Add an entry when you add a drawer.
 const SECTION_DESC = {
-  projects: 'Short section description goes here — a line about what lives in this drawer.',
-  blog: 'Short section description goes here — a line about what lives in this drawer.',
-  experience: 'Short section description goes here — a line about what lives in this drawer.',
-  repos: 'Short section description goes here — a line about what lives in this drawer.',
-  socials: 'Short section description goes here — a line about what lives in this drawer.'
+  projects: 'Substantial things I’ve built or am building — the work itself, rather than the code behind it.',
+  blog: 'Data-stories, thoughts and reflections. Nothing published yet — the first pieces are being written.',
+  experience: 'Research, teaching and behavioural-science roles, most recent first.',
+  repos: 'The raw code: pipelines, decision logs and documentation behind the projects.',
+  socials: 'Where to find me, and how to get a half-hour in the diary.'
 };
 window.App = App;

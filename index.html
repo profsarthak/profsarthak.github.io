@@ -71,17 +71,6 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .drawerfront h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,6.15vw,74px);line-height:1;letter-spacing:-.045em;text-transform:uppercase;margin-top:16px;white-space:nowrap;text-align:center}
 .drawerfront h2 .p{color:var(--orange-500)}
 .drawerfront .bio{font-family:var(--font-body);font-size:15px;line-height:1.7;max-width:620px;color:#c9c9be;margin:22px 0 0 auto;text-align:right}
-/* Narrow screens: the dither panel is a fixed 230px and would sit on top of the
-   single-line name, so it narrows and the name's floor drops to match. */
-@media (max-width:760px){
-  .cab{padding:28px 16px 44px}
-  /* Right padding reserves the dither strip, so every child clears it without
-     each needing its own max-width. */
-  .drawerfront{padding:38px 72px 26px 22px}
-  .drawerfront .dith{width:56px}
-  .drawerfront h2{font-size:clamp(20px,6.6vw,44px)}
-  .drawerfront .front-quote,.drawerfront .bio{max-width:none}
-}
 /* subpage */
 .subhead{border-bottom:1.5px solid var(--ink-900);background:var(--bone)}
 .subhead .wrap{padding:30px 26px 26px}
@@ -124,6 +113,54 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .dcols aside .ar:last-child{border-bottom:none}
 .dcols aside .ar span:first-child{color:var(--orange-600)}.dcols aside .ar span:last-child{color:var(--ink-900);opacity:.65;text-align:right}
 .foot{border-top:1.5px solid var(--ink-900);margin-top:56px;padding:26px 0;font-family:var(--font-mono);font-size:11px;display:flex;justify-content:space-between;opacity:.6}
+/* ============================================================
+   RESPONSIVE — tablet <=900px, phone <=600px.
+   Layout only: hard borders, square corners, offset shadows and mono chrome
+   all stay. Nothing here changes the desktop design.
+   ============================================================ */
+@media (max-width:900px){
+  .cab{padding:32px 20px 48px}
+  .cab-head{flex-wrap:wrap;gap:14px}
+  /* The dither is a fixed 230px strip; below this width it would sit on top of
+     the front's text, so it narrows and the right padding reserves what's left. */
+  .drawerfront{padding:38px 92px 28px 26px}
+  .drawerfront .dith{width:72px}
+  .drawerfront .front-quote,.drawerfront .bio{max-width:none}
+  .subhead h1{font-size:clamp(32px,9vw,60px)}
+  .grid3,.tiles{grid-template-columns:repeat(2,1fr)}
+  .dcols{grid-template-columns:1fr;gap:26px}
+  /* Two-up stats need the interior borders redrawn for the new grid. */
+  .dstats{grid-template-columns:repeat(2,1fr)}
+  .dstats .c{border-bottom:1.5px solid var(--ink-900)}
+  .dstats .c:nth-child(2n){border-right:none}
+  .dstats .c:nth-last-child(-n+2){border-bottom:none}
+}
+@media (max-width:600px){
+  .wrap,.subhead .wrap{padding-left:16px;padding-right:16px}
+  .cab{padding:26px 16px 40px}
+  .cab-head .rt{text-align:left}
+  .status .wrap{height:42px;font-size:10px}
+  .status .l{gap:12px}
+  .grid3,.tiles{grid-template-columns:1fr}
+  .drawerfront{padding:34px 64px 24px 18px}
+  .drawerfront .dith{width:48px}
+  /* Floor is low because the greeting is a single nowrap line — see note in
+     the commit body; the brief's 40px floor predates that change. */
+  .drawerfront h2{font-size:clamp(20px,6.6vw,44px)}
+  /* Folder tabs stack: the l/r alternation is a desktop conceit and there is no
+     room for num + name + desc on one row. Order resets so every tab reads the
+     same way; min-height keeps the tap target over 44px. */
+  .tab{flex-direction:column;align-items:flex-start;justify-content:center;height:auto;min-height:76px;padding:14px 52px 14px 16px;gap:3px}
+  .tab .num{width:auto}
+  .tab .desc{margin:0;padding:0}
+  .tab.r .num,.tab.r .name,.tab.r .desc,.tab.r .arw{order:0}
+  .tab .arw{position:absolute;right:16px;top:50%;transform:translateY(-50%);margin:0}
+  .tab:hover .arw{transform:translateY(-50%) translateX(4px)}
+  /* Stack yr / title / ext instead of squeezing three columns. */
+  .li{grid-template-columns:1fr;gap:6px;padding:18px 2px}
+  .tile{min-height:44px}
+  .foot{flex-direction:column;gap:8px}
+}
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>

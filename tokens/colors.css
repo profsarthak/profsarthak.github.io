@@ -65,6 +65,21 @@
   --viz-4:var(--hair);
   --viz-null:var(--null-fg);
 
+  /* ---- Categorical palette (ONLY for true nominal data: community
+     detection, cluster maps, multi-series where hue = identity, not scale).
+     Six muted, evenly-spaced hues sharing one value/chroma register so none
+     shouts over the others — the brand orange leads, then max-contrast teal,
+     then ochre / slate / olive / plum around the wheel. Never use these for
+     emphasis, sequential, or diverging data — that stays --viz-* / orange.
+     Assign strictly by index in this order for best adjacent separation. */
+  --cat-1:var(--orange-500);   /* brand orange — warm red   */
+  --cat-2:#2b7a74;             /* teal        — blue-green   */
+  --cat-3:#b0851d;             /* ochre       — gold         */
+  --cat-4:#3f5c78;             /* slate       — blue         */
+  --cat-5:#6f7a37;             /* olive       — yellow-green */
+  --cat-6:#7c4a63;             /* plum        — magenta      */
+  --cat-rest:var(--null-fg);   /* overflow / "other" bucket beyond 6 */
+
   --link:var(--orange-600);
   --link-hover:var(--orange-700);
 
