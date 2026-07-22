@@ -1,9 +1,43 @@
 // App — router + shared chrome (status bar). Views: cabinet → section → detail.
+
+// The view is mirrored into the URL hash so the browser's own Back button
+// walks the site instead of leaving it, and so a section or card can be linked
+// to directly. Hash rather than paths: GitHub Pages has no rewrite rules, so a
+// real path would 404 on refresh.
+const viewToHash = v => {
+  if (v.v === 'section') return '#/' + v.id;
+  if (v.v === 'detail') return '#/' + v.id + '/' + v.item.id;
+  return '#/';
+};
+const hashToView = hash => {
+  const S = window.SITE;
+  const parts = String(hash || '').replace(/^#\/?/, '').split('/').filter(Boolean);
+  if (!parts.length) return {
+    v: 'cabinet'
+  };
+  const tab = S.TABS.find(t => t.id === parts[0]);
+  if (!tab) return {
+    v: 'cabinet'
+  }; // unknown drawer → home, not a blank page
+  if (parts.length === 1) return {
+    v: 'section',
+    id: tab.id
+  };
+  const item = (S[tab.id] || []).find(x => x.id === parts[1]);
+  // Unknown card (or one with no detail page) falls back to its section.
+  return item && !item.wip ? {
+    v: 'detail',
+    id: tab.id,
+    item
+  } : {
+    v: 'section',
+    id: tab.id
+  };
+};
 function App() {
   const S = window.SITE;
-  const [view, setView] = React.useState({
-    v: 'cabinet'
-  });
+  // Seeded from the URL so a shared link opens on the right page.
+  const [view, setView] = React.useState(() => hashToView(window.location.hash));
   // Lives here, not in Cabinet: Cabinet unmounts on navigation, so local state
   // would shut the drawer every time you came back to the index.
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -23,12 +57,26 @@ function App() {
     window.scrollTo(0, 0);
     window.lucide && window.lucide.createIcons();
   }, [view]);
+  React.useEffect(() => {
+    // Back/forward across hash entries fires popstate; re-read the URL as truth.
+    const onPop = () => setView(hashToView(window.location.hash));
+    window.addEventListener('popstate', onPop);
+    // Give the first entry a hash of its own, so Back from the first section
+    // returns to the cabinet rather than to whatever preceded the site.
+    if (!window.location.hash) window.history.replaceState(null, '', '#/');
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+  const navigate = next => {
+    setView(next);
+    const h = viewToHash(next);
+    if (window.location.hash !== h) window.history.pushState(null, '', h);
+  };
   const tab = view.id ? S.TABS.find(t => t.id === view.id) : null;
-  const openSection = id => setView({
+  const openSection = id => navigate({
     v: 'section',
     id
   });
-  const openDetail = item => setView({
+  const openDetail = item => navigate({
     v: 'detail',
     id: view.id,
     item
@@ -57,7 +105,7 @@ function App() {
     className: "wrap"
   }, /*#__PURE__*/React.createElement("button", {
     className: "back",
-    onClick: () => view.v === 'detail' ? openSection(view.id) : setView({
+    onClick: () => view.v === 'detail' ? openSection(view.id) : navigate({
       v: 'cabinet'
     })
   }, /*#__PURE__*/React.createElement("i", {

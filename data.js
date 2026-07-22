@@ -86,8 +86,8 @@ window.SITE = {
       ],
     },
     // --- Coursework, grouped by theme. Each card's `links` are the papers
-    // themselves, public on Drive. Group projects are noted but co-authors
-    // are not named here; the PDFs carry the full author lists.
+    // themselves, public on Drive. Co-authors are not named here; the PDFs
+    // carry the full author lists.
     {
       id: 'cw-education', cat: 'COURSEWORK', ic: 'graduation-cap', t: 'Education & Learning',
       d: 'Four studies on what shapes learning — from school infrastructure and school meals to marking schemes and AI in the classroom.',
@@ -96,7 +96,6 @@ window.SITE = {
       body: [
         'Education turns up across my coursework from two directions: as policy, asking what the state provides and whether it works, and as psychology, asking what actually happens to a student sitting an exam.',
         'The policy side looks at whether electoral competition shapes school infrastructure, and whether India’s mid-day meal scheme translated into educational attainment. The psychology side runs experiments on students directly — whether a visible marking scheme and a ticking clock change test performance, and where students draw the line on using AI in their own academic work.',
-        'The last two were group projects.',
       ],
       links: [
         { t: 'Electoral Competition and Public Service Delivery', u: 'https://drive.google.com/file/d/1GkDJEPQnwCk0hPPP_buuL8ngRKDlOpO-/view', d: 'Whether electoral competition shapes educational infrastructure across Indian districts, 2010–2020. R.' },
@@ -108,12 +107,11 @@ window.SITE = {
     {
       id: 'cw-health-gender', cat: 'COURSEWORK', ic: 'heart-pulse', t: 'Health & Gender',
       d: 'Two studies on intimate partner violence in India — what raises a woman’s risk, and what might get it reported.',
-      s: [['2', 'papers'], ['NFHS-4', 'IHDS']],
+      s: [['2', 'papers'], ['IV + RCT', 'designs']],
       meta: [['Papers', '2'], ['Methods', 'Instrumental variables · RCT design'], ['Tools', 'Stata'], ['Region', 'India · rural Bihar']],
       body: [
         'Two papers approaching intimate partner violence from opposite ends: one asking what raises exposure to it, the other asking what could make it visible.',
         'The first uses age at menarche as an instrument for age at first marriage, to estimate how marrying later changes a woman’s probability of experiencing domestic violence. The second designs a behavioural intervention for Panchayat representatives in rural Bihar — the first people a victim approaches — to raise physical-IPV reporting, with a randomised trial to evaluate it.',
-        'The Bihar intervention was a group project.',
       ],
       links: [
         { t: 'Delayed Marriage, Enhanced Safety', u: 'https://drive.google.com/file/d/1VIYyXL2kUvbIxFwnZTqzqwRcStomBW5m/view', d: 'IV regression on NFHS-4, instrumenting age at first marriage with age at menarche.' },
@@ -128,7 +126,6 @@ window.SITE = {
       body: [
         'Three papers on the gap between how markets are supposed to behave and how they do.',
         'One runs a survey pilot on whether behavioural biases show up in undergraduates’ equity portfolio performance. One goes back to the Dutch tulip bubble of the 1630s, and finds it made of credit, honour and social networks rather than simple mania. The third asks whether the price limits exchanges impose to calm volatility instead just delay price discovery, reviewed across the Istanbul, Taiwan and Tokyo exchanges.',
-        'The tulip and price-limit papers were group projects.',
       ],
       links: [
         { t: 'Behavioural Biases and Portfolio Performance', u: 'https://drive.google.com/file/d/1z0uztZt4VJm7eHC5il6nGX72CsaNrr5s/view', d: 'Survey pilot on whether behavioural biases track equity portfolio performance among undergraduates.' },
