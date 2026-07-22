@@ -8,7 +8,11 @@
 /* Opening the drawer makes the page outgrow the viewport, and the scrollbar
    that appears would otherwise shrink the layout mid-animation. */
 html{scrollbar-gutter:stable}
+/* Stops iOS inflating body copy when the phone is rotated. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{background:var(--bone-dk);color:var(--ink-900);font-family:var(--font-body)}
+/* The default blue tap flash reads as a bug against this palette. */
+a,button,.tab,.tile{-webkit-tap-highlight-color:rgba(232,83,29,.18)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 a{color:var(--link)}a:hover{color:var(--link-hover)}
@@ -81,6 +85,11 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 .subhead p{font-family:var(--font-body);font-size:16px;line-height:1.55;max-width:560px;margin-top:16px;color:var(--ink-700)}
 /* grid */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+/* Grid items are min-width:auto by default, so a card whose stat row can't
+   shrink below its min-content pushes past its track and scrolls the page —
+   which it did at 320px. No effect where the track is already wide enough. */
+.grid3>*{min-width:0}
+.grid3>* *{min-width:0}
 /* list */
 .list{border-top:1.5px solid var(--ink-900);margin-top:30px}
 .li{display:grid;grid-template-columns:130px 1fr auto;gap:24px;align-items:center;padding:22px 4px;border-bottom:1.5px solid var(--ink-900);transition:background .15s}
@@ -149,11 +158,17 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
   .subhead h1{font-size:clamp(32px,9vw,60px)}
   .grid3,.tiles{grid-template-columns:repeat(2,1fr)}
   .dcols{grid-template-columns:1fr;gap:26px}
-  /* Two-up stats need the interior borders redrawn for the new grid. */
+  /* Two-up stats need the interior borders redrawn for the new grid. Which
+     cells sit in the final row depends on the count, so the rules are written
+     per count off data-n — a generic nth-child rule drew half a row rule under
+     three stats. An odd final cell spans the full width so there is no gap. */
   .dstats{grid-template-columns:repeat(2,1fr)}
   .dstats .c{border-bottom:1.5px solid var(--ink-900)}
   .dstats .c:nth-child(2n){border-right:none}
-  .dstats .c:nth-last-child(-n+2){border-bottom:none}
+  .dstats[data-n="2"] .c{border-bottom:none}
+  .dstats[data-n="3"] .c:nth-child(n+3){border-bottom:none}
+  .dstats[data-n="3"] .c:last-child{grid-column:1/-1;border-right:none}
+  .dstats[data-n="4"] .c:nth-child(n+3){border-bottom:none}
 }
 @media (max-width:600px){
   .wrap,.subhead .wrap{padding-left:16px;padding-right:16px}
@@ -178,8 +193,27 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
   .tab:hover .arw{transform:translateY(-50%) translateX(4px)}
   /* Stack yr / title / ext instead of squeezing three columns. */
   .li{grid-template-columns:1fr;gap:6px;padding:18px 2px}
+  /* Only on phone: long headlines must be allowed to break rather than widen
+     the card. Left off desktop so typography there is untouched. */
+  .grid3>* h3,.grid3>* p{overflow-wrap:anywhere}
   .tile{min-height:44px}
   .foot{flex-direction:column;gap:8px}
+  /* The pull becomes a full-width rail. At 25px tall it was the main control
+     on the landing page and well under a thumb-sized target; spanning the
+     drawer front reads as a drawer pull rather than a floating pill. */
+  .drawerfront{padding-top:60px}
+  .drawerfront .handle{top:0;left:0;right:0;transform:none;width:100%;justify-content:center;padding:15px 0;border-bottom:1.5px solid rgba(232,83,29,.28)}
+  .drawerfront .handle .grip{width:74px}
+}
+/* Touch devices: nothing here is reachable by hover, so link affordances that
+   normally appear on hover are shown by default, and controls get thumb-sized
+   targets. Keyed to the pointer, not the width — tablets are touch too. */
+@media (pointer:coarse){
+  .tab .arw{opacity:.8}
+  .li h4 .ext-arw{opacity:.9}
+  .dlinks .dlt svg{opacity:.9}
+  .back{padding:14px 0;margin-bottom:10px}
+  .dlinks .dl{padding:17px 0}
 }
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>

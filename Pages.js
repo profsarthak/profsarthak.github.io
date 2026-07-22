@@ -130,7 +130,7 @@ function DetailPage({
       position: 'relative'
     }
   }, /*#__PURE__*/React.createElement(DitherBlock, {
-    height: 280,
+    height: "clamp(150px,30vw,280px)",
     angle: 250
   }, /*#__PURE__*/React.createElement("i", {
     "data-lucide": item.ic,
@@ -143,6 +143,7 @@ function DetailPage({
     className: "tagabs"
   }, item.cat)), stats.length > 0 && /*#__PURE__*/React.createElement("div", {
     className: "dstats",
+    "data-n": Math.min(stats.length, 4),
     style: {
       '--dstat-n': Math.min(stats.length, 4)
     }
