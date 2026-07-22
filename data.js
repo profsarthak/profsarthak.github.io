@@ -44,6 +44,7 @@ window.SITE = {
     { id: 'blog', num: '003', name: 'Blog', desc: 'data-stories, thoughts & reflections', side: 'l', kind: 'grid' },
     { id: 'socials', num: '004', name: 'Socials', desc: 'where to find me', side: 'r', kind: 'tiles' },
     { id: 'repos', num: '005', name: 'Repositories', desc: 'code, data & replication', side: 'l', kind: 'list' },
+    { id: 'reading', num: '006', name: 'Clippings', desc: 'publications I keep coming back to', side: 'r', kind: 'list' },
   ],
 
   projects: [
@@ -186,6 +187,22 @@ window.SITE = {
     { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature review underway.', ext: '★ 0', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam' },
     { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 149 articles across 10 tracks, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
   ],
+  // Clippings. `yr` carries the filing tag and `ext` the domain — the row shape
+  // is the same as repos, so this needs no new component.
+  // NB: the `org` lines describe what each publication IS. They are not "why I
+  // read it" — swap in your own reason wherever you'd rather it be personal.
+  reading: [
+    { yr: 'PROGRESS', t: 'Works in Progress', org: 'Long essays on scientific and economic progress, and the institutions that produce it.', ext: 'worksinprogress.co', u: 'https://worksinprogress.co' },
+    { yr: 'IDEAS', t: 'Big Think', org: 'Interviews and essays from researchers across the sciences and philosophy.', ext: 'bigthink.com', u: 'https://bigthink.com' },
+    { yr: 'BEHAVIOUR', t: 'Behavioral Scientist', org: 'Non-profit magazine on behavioural science research and how it meets policy and practice.', ext: 'behavioralscientist.org', u: 'https://behavioralscientist.org' },
+    { yr: 'LANGUAGE', t: 'Online Etymology Dictionary', org: 'Where English words came from, and what they used to mean before they meant this.', ext: 'etymonline.com', u: 'https://www.etymonline.com' },
+    { yr: 'GAMES', t: 'Polygon', org: 'Games writing that treats the medium as culture rather than product.', ext: 'polygon.com', u: 'https://www.polygon.com' },
+    { yr: 'BOXING', t: 'The Ring', org: 'Boxing’s record of itself since 1922 — rankings, reporting and the sport’s long memory.', ext: 'ringmagazine.com', u: 'https://www.ringmagazine.com' },
+    { yr: 'SPORT & POWER', t: 'Sports Politika', org: 'Karim Zidan on where sport meets authoritarian politics, money and sportswashing.', ext: 'sportspolitika.news', u: 'https://www.sportspolitika.news' },
+    { yr: 'INDIA', t: 'Scroll.in', org: 'Independent Indian reporting on politics, policy and the states.', ext: 'scroll.in', u: 'https://scroll.in' },
+    { yr: 'INDIA', t: 'The Wire', org: 'Independent Indian public-interest journalism and investigation.', ext: 'thewire.in', u: 'https://thewire.in' },
+  ],
+
   socials: [
     { ic: 'linkedin', n: 'LinkedIn', h: 'linkedin.com/in/sarthakvm', u: 'https://www.linkedin.com/in/sarthakvm' },
     { ic: 'git-branch', n: 'GitHub', h: 'github.com/profsarthak', u: 'https://github.com/profsarthak' },

@@ -138,6 +138,7 @@ const SECTION_DESC = {
   blog: 'Data-stories, thoughts and reflections. Nothing published yet — the first pieces are being written.',
   experience: 'Research, teaching and behavioural-science roles, most recent first.',
   repos: 'The raw code: pipelines, decision logs and documentation behind the projects.',
-  socials: 'Where to find me, and how to get a half-hour in the diary.'
+  socials: 'Where to find me, and how to get a half-hour in the diary.',
+  reading: 'The publications I keep coming back to — where most of the rabbit-holes start.'
 };
 window.App = App;
