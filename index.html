@@ -99,11 +99,31 @@ a{color:var(--link)}a:hover{color:var(--link-hover)}
 /* detail */
 .detail{padding-top:30px}
 .detail .tagabs{position:absolute;top:14px;left:14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;background:var(--ink-900);color:var(--paper);padding:5px 11px}
-.dstats{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink-900);border-top:none}
+/* Sizes to the real number of stats (set inline), rather than a fixed four. */
+.dstats{display:grid;grid-template-columns:repeat(var(--dstat-n,4),1fr);border:1.5px solid var(--ink-900);border-top:none}
 .dstats .c{padding:18px 20px;border-right:1.5px solid var(--ink-900)}.dstats .c:last-child{border-right:none}
 .dstats .v{font-family:var(--font-display);font-weight:700;font-size:28px;letter-spacing:-.02em}.dstats .v.o{color:var(--orange-500)}
 .dstats .lb{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.55;margin-top:3px}
 .dcols{display:grid;grid-template-columns:1.7fr .9fr;gap:34px;margin-top:36px}
+/* No Details sidebar to show — give the prose the full measure. */
+.dcols.solo{grid-template-columns:1fr}
+.dcols.solo article{max-width:760px}
+/* Linked papers / repos under the prose. Same hard-bordered treatment as the
+   list rows, so it reads as part of the system rather than web links. */
+.dlinks{margin-top:34px;border-top:1.5px solid var(--ink-900)}
+.dlinks .dlh{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-600);padding:14px 0 10px}
+.dlinks .dl{display:block;padding:14px 0;border-top:1px solid var(--hair);text-decoration:none;color:var(--ink-900);transition:background .15s,padding-left .15s}
+.dlinks .dl:hover{background:var(--paper);padding-left:10px}
+.dlinks .dlt{display:flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:600;font-size:18px;letter-spacing:-.01em;color:var(--ink-900)}
+.dlinks .dl:hover .dlt{color:var(--orange-600)}
+.dlinks .dlt svg{width:15px;height:15px;opacity:.5}
+.dlinks .dl:hover .dlt svg{opacity:1}
+.dlinks .dld{display:block;font-family:var(--font-body);font-size:14px;line-height:1.55;color:var(--ink-700);margin-top:5px;max-width:640px}
+/* Linked list rows (repos). Experience rows have no URL and stay plain. */
+.li-link{text-decoration:none;color:inherit}
+.li-link:hover h4{color:var(--orange-600)}
+.li h4 .ext-arw{width:14px;height:14px;margin-left:7px;opacity:.4;vertical-align:middle}
+.li-link:hover h4 .ext-arw{opacity:1}
 .dcols article p{font-family:var(--font-body);font-size:17px;line-height:1.75;color:var(--ink-700);margin-bottom:18px}
 .dcols article .lead{font-size:20px;color:var(--ink-900);line-height:1.6}
 .dcols article .pull{border-left:3px solid var(--orange-500);padding:6px 0 6px 22px;margin:28px 0;font-family:var(--font-display);font-weight:500;font-size:23px;line-height:1.35;letter-spacing:-.01em;color:var(--ink-900)}

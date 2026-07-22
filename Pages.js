@@ -36,8 +36,10 @@ function GridPage({
       value: x[0],
       label: x[1],
       tone: x[2] === 'o' ? 'orange' : 'ink'
-    })),
-    onClick: () => onOpen(p)
+    }))
+    /* wip cards are announcements — there's no detail page behind them. */,
+    interactive: !p.wip,
+    onClick: p.wip ? undefined : () => onOpen(p)
   })));
 }
 
@@ -47,16 +49,29 @@ function ListPage({
 }) {
   return /*#__PURE__*/React.createElement("div", {
     className: "list"
-  }, items.map((i, k) => /*#__PURE__*/React.createElement("div", {
-    className: "li",
-    key: k
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "yr"
-  }, i.yr), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, i.t), /*#__PURE__*/React.createElement("div", {
-    className: "org"
-  }, i.org)), /*#__PURE__*/React.createElement("span", {
-    className: "ext"
-  }, i.ext))));
+  }, items.map((i, k) => {
+    const inner = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+      className: "yr"
+    }, i.yr), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, i.t, i.u && /*#__PURE__*/React.createElement("i", {
+      className: "ext-arw",
+      "data-lucide": "arrow-up-right"
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "org"
+    }, i.org)), /*#__PURE__*/React.createElement("span", {
+      className: "ext"
+    }, i.ext));
+    // Rows are only links where there's somewhere to go — experience has no URL.
+    return i.u ? /*#__PURE__*/React.createElement("a", {
+      className: "li li-link",
+      key: k,
+      href: i.u,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    }, inner) : /*#__PURE__*/React.createElement("div", {
+      className: "li",
+      key: k
+    }, inner);
+  }));
 }
 
 // --- TILES (Socials): link tiles ---
@@ -69,8 +84,9 @@ function TilesPage({
   }, items.map((i, k) => /*#__PURE__*/React.createElement("a", {
     className: "tile",
     key: k,
-    href: "#",
-    onClick: e => e.preventDefault()
+    href: i.u,
+    target: "_blank",
+    rel: "noopener noreferrer"
   }, /*#__PURE__*/React.createElement("i", {
     "data-lucide": i.ic,
     style: {
@@ -97,12 +113,16 @@ function DetailPage({
     StatCallout
   } = DS();
   useIcons();
-  const isProject = kind === 'projects';
-  const stats = item.s.concat(isProject ? [['00', 'metric'], ['00', 'metric']] : [['—', 'detail'], ['—', 'detail']]);
-  const aside = isProject ? [['LABEL', 'value'], ['LABEL', 'value'], ['LABEL', 'value'], ['LABEL', 'value'], ['LABEL', 'value'], ['LABEL', 'value']] : [['LABEL', 'value'], ['LABEL', 'value'], ['LABEL', 'value'], ['LABEL', 'value'], ['LABEL', 'value']];
+  // Show the stats that exist. Padding to a fixed four invented "00 metric"
+  // filler, and the grid now sizes itself to the real count.
+  const stats = item.s || [];
+  const aside = item.meta || [];
+  const links = item.links || [];
   const hasBody = item.body && item.body.length;
-  const paras = hasBody ? item.body : ['This is placeholder lead copy. Replace it with the opening of your write-up — one or two sentences that set up what this is about.', 'Body paragraph placeholder. Replace with your own text — describe the method, the context, or the story behind this entry. Keep it as long or short as you like.', 'Another placeholder paragraph. This is where a secondary point, a caveat, or a detail would go.', 'A closing placeholder line — the one takeaway you want to leave the reader with.'];
-  const pull = item.pull || (hasBody ? null : 'A pull-quote goes here — the one line you want people to remember.');
+  // No body yet? Fall back to the card's own summary rather than lorem — an
+  // entry added without prose should read thin, not fake.
+  const paras = hasBody ? item.body : [item.d];
+  const pull = item.pull || null;
   return /*#__PURE__*/React.createElement("div", {
     className: "detail"
   }, /*#__PURE__*/React.createElement("div", {
@@ -121,8 +141,11 @@ function DetailPage({
     }
   })), /*#__PURE__*/React.createElement("span", {
     className: "tagabs"
-  }, item.cat)), /*#__PURE__*/React.createElement("div", {
-    className: "dstats"
+  }, item.cat)), stats.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "dstats",
+    style: {
+      '--dstat-n': Math.min(stats.length, 4)
+    }
   }, stats.slice(0, 4).map((x, i) => /*#__PURE__*/React.createElement("div", {
     className: "c",
     key: i
@@ -131,16 +154,32 @@ function DetailPage({
   }, x[0]), /*#__PURE__*/React.createElement("div", {
     className: "lb"
   }, x[1])))), /*#__PURE__*/React.createElement("div", {
-    className: "dcols"
+    className: 'dcols' + (aside.length ? '' : ' solo')
   }, /*#__PURE__*/React.createElement("article", null, /*#__PURE__*/React.createElement("p", {
     className: "lead"
   }, paras[0]), pull && /*#__PURE__*/React.createElement("div", {
     className: "pull"
   }, pull), paras.slice(1).map((p, i) => /*#__PURE__*/React.createElement("p", {
     key: i
-  }, p))), /*#__PURE__*/React.createElement("aside", null, /*#__PURE__*/React.createElement("div", {
+  }, p)), links.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "dlinks"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "dlh"
+  }, links.length > 1 ? 'Papers' : 'Links'), links.map((l, i) => /*#__PURE__*/React.createElement("a", {
+    className: "dl",
+    key: i,
+    href: l.u,
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "dlt"
+  }, l.t, /*#__PURE__*/React.createElement("i", {
+    "data-lucide": "arrow-up-right"
+  })), l.d && /*#__PURE__*/React.createElement("span", {
+    className: "dld"
+  }, l.d))))), aside.length > 0 && /*#__PURE__*/React.createElement("aside", null, /*#__PURE__*/React.createElement("div", {
     className: "ah"
-  }, isProject ? 'Details' : 'Details'), aside.map((r, i) => /*#__PURE__*/React.createElement("div", {
+  }, "Details"), aside.map((r, i) => /*#__PURE__*/React.createElement("div", {
     className: "ar",
     key: i
   }, /*#__PURE__*/React.createElement("span", null, r[0]), /*#__PURE__*/React.createElement("span", null, r[1]))))));

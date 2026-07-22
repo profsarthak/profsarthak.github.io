@@ -9,14 +9,23 @@
        { id, cat, ic, t, d, s:[[value,label,tone?], …] }
      `ic` is any Lucide icon name. It renders in the grid AND gets
      a detail page for free. tone 'o' highlights a stat orange.
+     `s` takes as many stats as you give it — 2, 3, 4. Nothing is
+     padded, so don't invent a number to fill a slot.
      OPTIONAL long-form (shown on the detail page):
        body: ['First paragraph (shown large).', 'Next paragraph.', …]
        pull: 'A pull-quote line.'
-     Omit body/pull and the detail page shows placeholder prose.
+       meta: [['Label','value'], …]   → the Details sidebar.
+             Omit it and the sidebar disappears; the prose goes full width.
+       links:[{ t:'Link label', u:'https://…', d:'optional one-liner' }]
+             → a linked list under the prose. Used for repos, live
+               sites, and the papers behind a coursework card.
+       wip: true → card renders un-clickable (no detail page). For
+             announcements like the blog placeholder.
    ▸ HOW TO ADD A LIST ROW: push into EXPERIENCE / REPOS:
-       { yr, t, org, ext }
+       { yr, t, org, ext }        — REPOS also take u:'https://…'
+       to make the row a link. Omit `u` and the row is plain text.
    ▸ HOW TO ADD A SOCIAL TILE: push into SOCIALS:
-       { ic, n, h }
+       { ic, n, h, u }  — `h` is the label shown, `u` the real href.
    ============================================================ */
 window.SITE = {
   author: 'Sarthak Mohanty',
@@ -40,10 +49,12 @@ window.SITE = {
   projects: [
     {
       id: 'temperaters', cat: 'WIP', ic: 'map', t: 'Temperaters',
-      d: 'How much hotter one part of an Indian city runs than another — fine-scale temperature, joint with Shreyansh Dwivedy.',
+      d: 'How much hotter one part of an Indian city runs than another — fine-scale temperature, joint with a friend.',
       s: [['Scoping', 'phase'], ['Intra-urban', 'LST']],
+      meta: [['Status', 'Literature review'], ['Scale', 'Intra-urban'], ['Likely data', 'Satellite LST'], ['Region', 'India'], ['Collaboration', 'Joint, two authors']],
+      links: [{ t: 'Repository', u: 'https://github.com/profsarthak/temperaters', d: 'Decision log and design specs.' }],
       body: [
-        'Shreyansh Dwivedy and I are studying how temperature varies across India at fine spatial scale. The current focus is intra-urban: how much hotter one part of a city runs than another, most likely from satellite land surface temperature, at a resolution finer than IMD’s block-level data.',
+        'A friend and I are studying how temperature varies across India at fine spatial scale. The current focus is intra-urban: how much hotter one part of a city runs than another, most likely from satellite land surface temperature, at a resolution finer than IMD’s block-level data.',
         'We are still in the literature-review phase, screening papers through a five-pool funnel — all climate-variable geospatial mapping, then temperature, then fine granularity, then within-city, then reusable method or data — before committing to an approach.',
         'An earlier plan for an interactive city-level temperature map is paused rather than abandoned; its design is preserved in the decision log and may resume once the research direction settles. The Repositories drawer has the technical detail.',
       ],
@@ -52,7 +63,9 @@ window.SITE = {
     {
       id: 'news-digest', cat: 'PUBLIC DOMAIN', ic: 'newspaper', t: 'News Digest',
       d: 'A daily news reader that groups the same story across outlets into one topic, then explains it in plain English.',
-      s: [['~$0.33', '/day', 'o'], ['Next.js', '+ Claude']],
+      s: [['~$0.33', '/day', 'o'], ['10', 'topics/day'], ['Next.js', '+ Claude']],
+      meta: [['Stack', 'Next.js 16 · TypeScript'], ['Styling', 'Tailwind v4'], ['Models', 'Claude Sonnet + Haiku'], ['Store', 'Neon Postgres'], ['Host', 'Vercel'], ['Schedule', 'Daily (GitHub Actions)']],
+      links: [{ t: 'Repository', u: 'https://github.com/profsarthak/news-digest', d: 'Built to be forked — wire in your own key and database.' }],
       body: [
         'A personal, installable news reader. Once a day it pulls the last 24 hours from a set of outlets I choose, groups stories covering the same event into a single topic, and writes a plain-English explainer, a jargon glossary, and — for the biggest stories — web-search-backed context and implications. A separate Opinion tab curates a few op-eds with a neutral summary and which way each leans.',
         'The compile takes about two minutes, which exceeds serverless timeouts, so the work is split: a daily GitHub Actions job does the heavy lifting and writes one row per day to Neon Postgres, and Vercel serves only the lightweight reader. Next.js 16 and TypeScript, Tailwind v4, Claude Sonnet for clustering and explainers, Haiku for op-ed selection.',
@@ -63,15 +76,100 @@ window.SITE = {
     {
       id: 'qss', cat: 'DOMAIN', ic: 'book-open', t: 'The Quantitative Social Scientist',
       d: 'An intuition-first encyclopedia for quantitative social science — probability through inference, econometrics and causal inference.',
-      s: [['Live', 'site', 'o'], ['Quarto', 'authored']],
+      s: [['149', 'articles', 'o'], ['10', 'tracks']],
+      meta: [['Articles', '149'], ['Tracks', '10'], ['Format', 'Quarto'], ['Published', 'GitHub Pages'], ['Source', 'Private']],
+      links: [{ t: 'Read it', u: 'https://profsarthak.github.io/quant-social-scientist/', d: 'The live encyclopedia.' }],
       body: [
         'An intuition-first encyclopedia for quantitative social science research: basic probability through inference, econometrics, causal inference, and the statistical-versus-predictive divide. The aim is intuition before formalism.',
-        'Authored in Quarto and published to GitHub Pages at profsarthak.github.io/quant-social-scientist. The published repository is build output — the authoring project is kept separate and private.',
+        'One hundred and forty-nine articles across ten tracks, from an overture and foundations through inference, regression, prediction, causal inference and field realities, plus standalone tracks on complexity, dataframes and machine learning.',
+        'Authored in Quarto and published to GitHub Pages. The published repository is build output — the authoring project is kept separate and private.',
+      ],
+    },
+    // --- Coursework, grouped by theme. Each card's `links` are the papers
+    // themselves, public on Drive. Group projects are noted but co-authors
+    // are not named here; the PDFs carry the full author lists.
+    {
+      id: 'cw-education', cat: 'COURSEWORK', ic: 'graduation-cap', t: 'Education & Learning',
+      d: 'Four studies on what shapes learning — from school infrastructure and school meals to marking schemes and AI in the classroom.',
+      s: [['4', 'papers'], ['2023–25', 'years']],
+      meta: [['Papers', '4'], ['Methods', 'ITT · 2×2 factorial · Friedman'], ['Tools', 'R · Jamovi'], ['Institution', 'Ashoka University']],
+      body: [
+        'Education turns up across my coursework from two directions: as policy, asking what the state provides and whether it works, and as psychology, asking what actually happens to a student sitting an exam.',
+        'The policy side looks at whether electoral competition shapes school infrastructure, and whether India’s mid-day meal scheme translated into educational attainment. The psychology side runs experiments on students directly — whether a visible marking scheme and a ticking clock change test performance, and where students draw the line on using AI in their own academic work.',
+        'The last two were group projects.',
+      ],
+      links: [
+        { t: 'Electoral Competition and Public Service Delivery', u: 'https://drive.google.com/file/d/1GkDJEPQnwCk0hPPP_buuL8ngRKDlOpO-/view', d: 'Whether electoral competition shapes educational infrastructure across Indian districts, 2010–2020. R.' },
+        { t: 'Nutrition for Education', u: 'https://drive.google.com/file/d/1mJ0w-dH6o9TZoYXT7ZqMKCi5XkYK4gj8/view', d: 'Intention-to-treat analysis of the mid-day meal scheme on educational attainment, exploiting staggered state rollout in IHDS-II.' },
+        { t: 'Marks, Time and Test Performance', u: 'https://drive.google.com/file/d/17lYyWDS8zkUmcw6kAYpNH45lMiFaHXuP/view', d: 'A 2×2 factorial experiment on 80 students. Neither a visible marking scheme nor time awareness mattered alone — together they did.' },
+        { t: 'Attitudes towards AI in Academia', u: 'https://drive.google.com/file/d/1eh6b_vEPU-nxpLWWqdylLxBaG2WcSU0g/view', d: 'Mixed-methods study of when AI feels acceptable: fine for brainstorming and grammar, not for the thinking in between.' },
+      ],
+    },
+    {
+      id: 'cw-health-gender', cat: 'COURSEWORK', ic: 'heart-pulse', t: 'Health & Gender',
+      d: 'Two studies on intimate partner violence in India — what raises a woman’s risk, and what might get it reported.',
+      s: [['2', 'papers'], ['NFHS-4', 'IHDS']],
+      meta: [['Papers', '2'], ['Methods', 'Instrumental variables · RCT design'], ['Tools', 'Stata'], ['Region', 'India · rural Bihar']],
+      body: [
+        'Two papers approaching intimate partner violence from opposite ends: one asking what raises exposure to it, the other asking what could make it visible.',
+        'The first uses age at menarche as an instrument for age at first marriage, to estimate how marrying later changes a woman’s probability of experiencing domestic violence. The second designs a behavioural intervention for Panchayat representatives in rural Bihar — the first people a victim approaches — to raise physical-IPV reporting, with a randomised trial to evaluate it.',
+        'The Bihar intervention was a group project.',
+      ],
+      links: [
+        { t: 'Delayed Marriage, Enhanced Safety', u: 'https://drive.google.com/file/d/1VIYyXL2kUvbIxFwnZTqzqwRcStomBW5m/view', d: 'IV regression on NFHS-4, instrumenting age at first marriage with age at menarche.' },
+        { t: 'Pao ki Jutti Nahi, Gram ki Mazbooti Sahi', u: 'https://drive.google.com/file/d/1u7jqE5pGE2u3gw559m_gKnmJLmFUuCYo/view', d: 'A behavioural intervention to raise physical-IPV reporting in rural Bihar by shifting Panchayat representatives’ attitudes.' },
+      ],
+    },
+    {
+      id: 'cw-finance', cat: 'COURSEWORK', ic: 'trending-up', t: 'Markets & Manias',
+      d: 'Three studies on how markets misbehave — investor bias, a seventeenth-century bubble, and whether price limits actually help.',
+      s: [['3', 'papers'], ['1630s–now', 'span']],
+      meta: [['Papers', '3'], ['Methods', 'Survey pilot · historical · empirical review'], ['Tools', 'Qualtrics · Jamovi'], ['Markets', 'Istanbul · Taiwan · Tokyo']],
+      body: [
+        'Three papers on the gap between how markets are supposed to behave and how they do.',
+        'One runs a survey pilot on whether behavioural biases show up in undergraduates’ equity portfolio performance. One goes back to the Dutch tulip bubble of the 1630s, and finds it made of credit, honour and social networks rather than simple mania. The third asks whether the price limits exchanges impose to calm volatility instead just delay price discovery, reviewed across the Istanbul, Taiwan and Tokyo exchanges.',
+        'The tulip and price-limit papers were group projects.',
+      ],
+      links: [
+        { t: 'Behavioural Biases and Portfolio Performance', u: 'https://drive.google.com/file/d/1z0uztZt4VJm7eHC5il6nGX72CsaNrr5s/view', d: 'Survey pilot on whether behavioural biases track equity portfolio performance among undergraduates.' },
+        { t: 'On Tulipmania and the Obsession', u: 'https://drive.google.com/file/d/1aIyDDR6ZspsY7P2UiOdGtAhgTbxQLPg_/view', d: 'What the 1630s Dutch tulip bubble was actually made of — credit, honour and reputation more than mania.' },
+        { t: 'The Impact of Price Limits on the Stock Market', u: 'https://drive.google.com/file/d/1xyQ3nYz0HyYdn5zS7c-QOhCp9rLpGvOQ/view', d: 'Do price limits calm volatility or delay price discovery? Evidence from Istanbul, Taiwan and Tokyo.' },
+      ],
+    },
+    {
+      id: 'cw-cross-cultural', cat: 'COURSEWORK', ic: 'globe', t: 'Culture & Cognition',
+      d: 'Three papers on how history and schooling leave marks on how people think, feel and assign responsibility.',
+      s: [['3', 'papers'], ['Solo', 'authored']],
+      meta: [['Papers', '3'], ['Course', 'Cross-Cultural Psychology'], ['Comparisons', 'India · UK/US · Sweden'], ['Authorship', 'Solo']],
+      body: [
+        'Three solo papers from cross-cultural psychology, each taking a difference between populations and asking what cultural mechanism produced it.',
+        'The first argues that schooling, not genetics, explains why Indians educated in India and Indians educated in the UK or US diverge on analytic versus holistic cognition — two genetically similar populations, different classrooms. The second asks whether Delhi’s imperial, repeatedly-conquered history and Mumbai’s mercantile one leave measurably different levels of neuroticism. The third contrasts who is held responsible for caring for disabled adults: family in India, the state in Sweden, and the value systems behind each.',
+      ],
+      links: [
+        { t: 'The Impact of Pedagogy on Styles of Cognition', u: 'https://drive.google.com/file/d/1lPhU7oKTQ4_QW3ig25tcQe0dJNoZUqe6/view', d: 'Why schooling, more than ancestry, separates analytic from holistic cognition in the Indian diaspora.' },
+        { t: 'Of Empires and Entrepreneurs', u: 'https://drive.google.com/file/d/10hD1uYFKXPnCAhfrtEZB7okEJMXFpEQY/view', d: 'Whether Delhi’s turbulent political history and Mumbai’s commercial one show up as differences in neuroticism.' },
+        { t: 'Burden of Care', u: 'https://drive.google.com/file/d/1t1UOrgE6Y2GO-xiiYs38Hn-MDlWM9lVM/view', d: 'Attribution of responsibility for disabled adults in India and Sweden — family duty against state provision.' },
+      ],
+    },
+    {
+      id: 'cw-other', cat: 'COURSEWORK', ic: 'shapes', t: 'Other Work',
+      d: 'Two solo pieces that fit nowhere else — a regression on professional boxers, and an essay on names in Homer and Walcott.',
+      s: [['2', 'papers'], ['Solo', 'authored']],
+      meta: [['Papers', '2'], ['Methods', 'Logistic GLM · literary analysis'], ['Authorship', 'Solo']],
+      body: [
+        'Two papers that refuse to sit with the others.',
+        'The first fits a logistic regression to professional boxers in the lower weight classes, asking whether experience and weighing in under the class limit predict win rate. Experience does, sharply; the weight differential points the right way but never reaches significance on twenty-five observations. It was written for the same statistical-models course I went on to teach.',
+        'The second is a literature essay comparing how Homer’s Odyssey and Derek Walcott’s Omeros treat a name — inherited destiny in one, severed ancestry in the other.',
+      ],
+      links: [
+        { t: 'Float like a butterfly, think like a statistician', u: 'https://drive.google.com/file/d/1-IXZ9k-fDqmigvk2YMINQP8f9O_fu0IG/view', d: 'Experience and weight differential as predictors of a boxer’s win rate, via a binomial GLM.' },
+        { t: 'The Power of Names', u: 'https://drive.google.com/file/d/1SBq-x1bpPuls0YqvNXCmvh4HnOm1kK08/view', d: 'How The Odyssey and Omeros both make a name the root of identity — one inherited, one taken away.' },
       ],
     },
   ],
   blog: [
-    { id: 'b1', cat: 'WIP', ic: 'pen-line', t: 'Work in progress', d: 'Writing in progress — data-stories and reflections landing soon.', s: [['—', 'read'], ['—', 'date']] },
+    // wip: no detail page — the card is the whole message.
+    { id: 'b1', cat: 'WIP', ic: 'pen-line', t: 'Work in progress', d: 'Writing in progress — data-stories and reflections landing soon.', s: [['—', 'read'], ['—', 'date']], wip: true },
   ],
   // From the CV, most recent first. Coursework research projects are deliberately
   // not listed here — they are course output, not positions.
@@ -87,13 +185,14 @@ window.SITE = {
     { yr: '2023', t: 'Behavioural Science Summer Scholar', org: 'Cowry Consulting · Remote / London', ext: 'FELLOWSHIP' },
   ],
   repos: [
-    { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0' },
-    { yr: '2026', t: 'temperaters', org: 'India temperature geospatial project — intra-urban land surface temperature at finer-than-block resolution. Decision log and design specs.', ext: '★ 0' },
-    { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature review underway.', ext: '★ 0' },
+    { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0', u: 'https://github.com/profsarthak/news-digest' },
+    { yr: '2026', t: 'temperaters', org: 'India temperature geospatial project — intra-urban land surface temperature at finer-than-block resolution. Decision log and design specs.', ext: '★ 0', u: 'https://github.com/profsarthak/temperaters' },
+    { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature review underway.', ext: '★ 0', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam' },
+    { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 149 articles across 10 tracks, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
   ],
   socials: [
-    { ic: 'linkedin', n: 'LinkedIn', h: 'linkedin.com/in/sarthakvm' },
-    { ic: 'git-branch', n: 'GitHub', h: 'github.com/profsarthak' },
-    { ic: 'calendar', n: 'Calendly', h: 'calendly.com/sarthakvm/30-minutes' },
+    { ic: 'linkedin', n: 'LinkedIn', h: 'linkedin.com/in/sarthakvm', u: 'https://www.linkedin.com/in/sarthakvm' },
+    { ic: 'git-branch', n: 'GitHub', h: 'github.com/profsarthak', u: 'https://github.com/profsarthak' },
+    { ic: 'calendar', n: 'Calendly', h: 'calendly.com/sarthakvm/30-minutes', u: 'https://calendly.com/sarthakvm/30-minutes' },
   ],
 };
