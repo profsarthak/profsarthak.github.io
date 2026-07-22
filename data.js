@@ -171,9 +171,8 @@ window.SITE = {
   // From the CV, most recent first. Coursework research projects are deliberately
   // not listed here — they are course output, not positions.
   experience: [
-    { yr: '2026 —', t: 'Senior Analyst, Quantitative', org: 'Busara Center for Behavioural Economics · Remote', ext: 'RESEARCH' },
-    { yr: '2025–26', t: 'Research Intern, Child & Maternal Nutrition', org: 'Centre for Social and Behaviour Change · Remote', ext: 'RESEARCH' },
-    { yr: '2024–25', t: 'Research Assistant, Extending the “Republic of Beliefs”', org: 'Ashoka University · Remote', ext: 'RESEARCH' },
+    { yr: '2026 —', t: 'Senior Analyst, Methods and Research Innovation', org: 'Busara Center for Behavioural Economics · Remote', ext: 'RESEARCH' },
+    { yr: '2025–26', t: 'Research Intern, Strengthening Child and Maternal Nutrition Project', org: 'Centre for Social and Behaviour Change · Remote', ext: 'RESEARCH' },
     { yr: '2025', t: 'Teaching Assistant, ECO-3704 Statistical Models', org: 'Economics Department, Ashoka University · Sonipat', ext: 'TEACHING' },
     { yr: '2025', t: 'Teaching Assistant, PSY-3059 Group Processes', org: 'Psychology Department, Ashoka University · Sonipat', ext: 'TEACHING' },
     { yr: '2024', t: 'Research Intern, Behaviour Change', org: 'Atlas of Behaviour Change in Development · New Delhi', ext: 'RESEARCH' },
