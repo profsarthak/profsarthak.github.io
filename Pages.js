@@ -57,7 +57,9 @@ function ListPage({
       "data-lucide": "arrow-up-right"
     })), /*#__PURE__*/React.createElement("div", {
       className: "org"
-    }, i.org)), /*#__PURE__*/React.createElement("span", {
+    }, i.org), i.note && /*#__PURE__*/React.createElement("div", {
+      className: "note"
+    }, i.note)), /*#__PURE__*/React.createElement("span", {
       className: "ext"
     }, i.ext));
     // Rows are only links where there's somewhere to go — experience has no URL.

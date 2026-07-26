@@ -191,15 +191,17 @@ window.SITE = {
   ],
   // From the CV, most recent first. Coursework research projects are deliberately
   // not listed here — they are course output, not positions.
+  // `note` is the one-liner shown under the org stub. Experience-only; list
+  // rows elsewhere (repos) omit it.
   experience: [
-    { yr: '2026 —', t: 'Senior Analyst, Methods and Research Innovation', org: 'Busara Center for Behavioural Economics · Remote', ext: 'RESEARCH' },
-    { yr: '2025–26', t: 'Research Intern, Strengthening Child and Maternal Nutrition Project', org: 'Centre for Social and Behaviour Change · Remote', ext: 'RESEARCH' },
-    { yr: '2025', t: 'Teaching Assistant, ECO-3704 Statistical Models', org: 'Economics Department, Ashoka University · Sonipat', ext: 'TEACHING' },
-    { yr: '2025', t: 'Teaching Assistant, PSY-3059 Group Processes', org: 'Psychology Department, Ashoka University · Sonipat', ext: 'TEACHING' },
-    { yr: '2024', t: 'Research Intern, Behaviour Change', org: 'Atlas of Behaviour Change in Development · New Delhi', ext: 'RESEARCH' },
-    { yr: '2023–25', t: 'Head of the Consulting Unit', org: 'Ashoka University Behavioural Insights Team · Sonipat', ext: 'LEADERSHIP' },
-    { yr: '2023–24', t: 'Head of the Content Team', org: 'Special Olympics Bharat, Ashoka Chapter · Sonipat', ext: 'LEADERSHIP' },
-    { yr: '2023', t: 'Behavioural Science Summer Scholar', org: 'Cowry Consulting · Remote / London', ext: 'FELLOWSHIP' },
+    { yr: '2026 —', t: 'Senior Analyst, Methods and Research Innovation', org: 'Busara Center for Behavioural Economics · Remote', ext: 'RESEARCH', note: 'Statistical modelling, computational analysis, and causal designs across development-sector interventions in the Global South.' },
+    { yr: '2025–26', t: 'Research Intern, Strengthening Child and Maternal Nutrition Project', org: 'Centre for Social and Behaviour Change · Remote', ext: 'RESEARCH', note: 'Analysed child-feeding behaviours in rural Bihar and co-authored two policy reports, presented to the Gates Foundation and Government of Bihar.' },
+    { yr: '2025', t: 'Teaching Assistant, ECO-3704 Statistical Models', org: 'Economics Department, Ashoka University · Sonipat', ext: 'TEACHING', note: 'Ran weekly R coding support and materials for 35+ students in an advanced statistical-modelling elective.' },
+    { yr: '2025', t: 'Teaching Assistant, PSY-3059 Group Processes', org: 'Psychology Department, Ashoka University · Sonipat', ext: 'TEACHING', note: 'Built rubrics and question banks for 30+ students; lectured on the social identity theory of leadership, and on beliefs, behaviours and attitudes toward the environment.' },
+    { yr: '2024', t: 'Research Intern, Behaviour Change', org: 'Atlas of Behaviour Change in Development · New Delhi', ext: 'RESEARCH', note: 'Researched behaviours of interest to civil-society organisations, and organised external programmes to build interest in applied behavioural science.' },
+    { yr: '2023–25', t: 'Head of the Consulting Unit', org: 'Ashoka University Behavioural Insights Team · Sonipat', ext: 'LEADERSHIP', note: 'Led a team of 10+ applying behavioural science across client briefs — from retail and consumer goods to campus health and public transport.' },
+    { yr: '2023–24', t: 'Head of the Content Team', org: 'Special Olympics Bharat, Ashoka Chapter · Sonipat', ext: 'LEADERSHIP', note: 'Led 7 writers publishing content that advocates for the inclusion of people with intellectual disabilities through sport.' },
+    { yr: '2023', t: 'Behavioural Science Summer Scholar', org: 'Cowry Consulting · Remote / London', ext: 'FELLOWSHIP', note: 'Learnt to apply behavioural science and design methods to research — through fieldwork on human–stray-dog conflict and environmental cues prototyped in Figma.' },
   ],
   repos: [
     { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0', u: 'https://github.com/profsarthak/news-digest' },
