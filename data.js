@@ -62,6 +62,19 @@ window.SITE = {
       pull: 'The map is paused, not abandoned.',
     },
     {
+      id: 'benign-masochism', cat: 'WIP', ic: 'gamepad-2', t: 'Benign Masochism on Steam',
+      d: 'Why are survival-crafting games — and the studios releasing them — booming? An empirical study of a dread-driven cascade.',
+      s: [['Pre-data', 'phase'], ['Two-stage', 'design']],
+      meta: [['Status', 'Pre-data · lit review'], ['Design', 'Two-stage, chained'], ['Demand', 'Within-user review share'], ['Supply', 'Genre panel · event study'], ['Data', 'Steam public reviews'], ['Stack', 'R']],
+      links: [{ t: 'Repository', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam', d: 'R pipeline, and an append-only decision log with the design rationale.' }],
+      body: [
+        'Why do people love survival-crafting games, and why are studios releasing so many of them? The paper follows one causal cascade: as the world feels more precarious, people cope through benign masochism — the taste for hardship you know can’t actually hurt you — and spend it on brutally hard survival games; their unusual success pulls more studios in, and the release rate accelerates.',
+        'Rather than chase the whole chain with a single instrument, it splits into two stages that can each be identified on their own. The demand stage asks whether rising dread shifts consumption, measured as a within-user shift in how much of someone’s Steam reviewing goes to survival games. The supply stage asks whether that success drives entry, through a genre-level panel and event studies around breakout hits.',
+        'It’s pre-data: the current deliverable is the literature review, and no pipeline has run yet. The R code, and an append-only log of every design decision and why it was made, live in the repository.',
+      ],
+      pull: 'Benign masochism — the taste for hardship you know can’t actually hurt you.',
+    },
+    {
       id: 'news-digest', cat: 'PUBLIC DOMAIN', ic: 'newspaper', t: 'News Digest',
       d: 'A daily news reader that groups the same story across outlets into one topic, then explains it in plain English.',
       s: [['~$0.33', '/day', 'o'], ['10', 'topics/day'], ['Next.js', '+ Claude']],
