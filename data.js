@@ -38,14 +38,16 @@ window.SITE = {
   bio: 'I like understanding anything that piques my curiosity. How I understand something is by researching it. To research something, I analyze data (numeric and non-numeric alike) on it, because I believe the story data outlines can be read by anyone curious enough to look. This site is where I document my rabbit-holes.',
   stats: [],
 
+  // Order is display-only; routing keys off id, so reordering breaks no links.
+  // side alternates l/r down the list for the folder-tab stagger.
   TABS: [
     { id: 'projects', num: '001', name: 'Projects', desc: 'substantial things I’ve built or am building — the work, not just the code', side: 'l', kind: 'grid' },
-    { id: 'experience', num: '002', name: 'Experience', desc: 'roles, fellowships, teaching', side: 'r', kind: 'list' },
-    { id: 'blog', num: '003', name: 'Blog', desc: 'data-stories, thoughts & reflections', side: 'l', kind: 'grid' },
-    { id: 'socials', num: '004', name: 'Socials', desc: 'where to find me', side: 'r', kind: 'tiles' },
-    { id: 'repos', num: '005', name: 'Repositories', desc: 'code, data & replication', side: 'l', kind: 'list' },
-    { id: 'reading', num: '006', name: 'Clippings', desc: 'publications I keep coming back to', side: 'r', kind: 'list' },
-    { id: 'papers', num: '007', name: 'Papers', desc: 'research write-ups — coursework now, published work as it lands', side: 'l', kind: 'grid' },
+    { id: 'repos', num: '002', name: 'Repositories', desc: 'code, data & replication', side: 'r', kind: 'list' },
+    { id: 'papers', num: '003', name: 'Papers', desc: 'research write-ups — coursework now, published work as it lands', side: 'l', kind: 'grid' },
+    { id: 'blog', num: '004', name: 'Blog', desc: 'data-stories, thoughts & reflections', side: 'r', kind: 'grid' },
+    { id: 'experience', num: '005', name: 'Experience', desc: 'roles, fellowships, teaching', side: 'l', kind: 'list' },
+    { id: 'socials', num: '006', name: 'Socials', desc: 'where to find me', side: 'r', kind: 'tiles' },
+    { id: 'reading', num: '007', name: 'Clippings', desc: 'publications I keep coming back to', side: 'l', kind: 'list' },
   ],
 
   projects: [
