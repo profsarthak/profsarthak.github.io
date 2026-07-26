@@ -139,6 +139,7 @@ const SECTION_DESC = {
   experience: 'Research, teaching and behavioural-science roles, most recent first.',
   repos: 'The raw code: pipelines, decision logs and documentation behind the projects.',
   socials: 'Where to find me, and how to get a half-hour in the diary.',
-  reading: 'The publications I keep coming back to — where most of the rabbit-holes start.'
+  reading: 'The publications I keep coming back to — where most of the rabbit-holes start.',
+  papers: 'Research write-ups, mostly coursework from my degree — across economics, psychology, gender, finance and culture. Published work will land here as it comes.'
 };
 window.App = App;

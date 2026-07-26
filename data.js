@@ -45,6 +45,7 @@ window.SITE = {
     { id: 'socials', num: '004', name: 'Socials', desc: 'where to find me', side: 'r', kind: 'tiles' },
     { id: 'repos', num: '005', name: 'Repositories', desc: 'code, data & replication', side: 'l', kind: 'list' },
     { id: 'reading', num: '006', name: 'Clippings', desc: 'publications I keep coming back to', side: 'r', kind: 'list' },
+    { id: 'papers', num: '007', name: 'Papers', desc: 'research write-ups — coursework now, published work as it lands', side: 'l', kind: 'grid' },
   ],
 
   projects: [
@@ -99,9 +100,13 @@ window.SITE = {
         'Authored in Quarto and published to GitHub Pages. The published repository is build output — the authoring project is kept separate and private.',
       ],
     },
-    // --- Coursework, grouped by theme. Each card's `links` are the papers
-    // themselves, public on Drive. Co-authors are not named here; the PDFs
-    // carry the full author lists.
+  ],
+
+  // --- Papers: research write-ups, grouped by theme. Coursework for now, each
+  // tagged COURSEWORK; published work will land here later under its own tag.
+  // Card `links` are the papers on Drive — co-authors aren't named, the PDFs
+  // carry the full author lists.
+  papers: [
     {
       id: 'cw-education', cat: 'COURSEWORK', ic: 'graduation-cap', t: 'Education & Learning',
       d: 'Four studies on what shapes learning — from school infrastructure and school meals to marking schemes and AI in the classroom.',
