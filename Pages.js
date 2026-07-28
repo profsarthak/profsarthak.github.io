@@ -168,7 +168,7 @@ function DetailPage({
     className: "dlinks"
   }, /*#__PURE__*/React.createElement("div", {
     className: "dlh"
-  }, links.length > 1 ? 'Papers' : 'Links'), links.map((l, i) => /*#__PURE__*/React.createElement("a", {
+  }, kind === 'papers' ? 'Papers' : 'Links'), links.map((l, i) => /*#__PURE__*/React.createElement("a", {
     className: "dl",
     key: i,
     href: l.u,
