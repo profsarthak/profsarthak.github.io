@@ -20,7 +20,9 @@ function Cabinet({
     className: "cab-head"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "k"
-  }, "/ PERSONAL INDEX \u2014 SELECT A DRAWER"), /*#__PURE__*/React.createElement("h1", null, "What are you looking for?")), /*#__PURE__*/React.createElement("div", {
+  }, "/ PERSONAL INDEX \u2014 SELECT A DRAWER"), /*#__PURE__*/React.createElement("p", {
+    className: "q"
+  }, "What are you looking for?")), /*#__PURE__*/React.createElement("div", {
     className: "rt"
   }, "QUANTITATIVE RESEARCH", /*#__PURE__*/React.createElement("br", null), "SOCIAL SCIENCE \xB7 APPLIED BEHAVIOURAL SCIENCE")), /*#__PURE__*/React.createElement("div", {
     className: 'drawer' + (open ? ' open' : '')
@@ -38,8 +40,9 @@ function Cabinet({
     className: "folders-inner",
     id: "cab-folders",
     "aria-hidden": !open
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "folders"
+  }, /*#__PURE__*/React.createElement("nav", {
+    className: "folders",
+    "aria-label": "Site sections"
   }, S.TABS.map(t => /*#__PURE__*/React.createElement("button", {
     key: t.id,
     className: 'tab ' + t.side,
@@ -75,7 +78,7 @@ function Cabinet({
     className: "front-quote"
   }, S.quote, /*#__PURE__*/React.createElement("span", {
     className: "front-cite"
-  }, S.quoteCite)), /*#__PURE__*/React.createElement("h2", null, accentPunct(S.greeting)), /*#__PURE__*/React.createElement("p", {
+  }, S.quoteCite)), /*#__PURE__*/React.createElement("h1", null, accentPunct(S.greeting)), /*#__PURE__*/React.createElement("p", {
     className: "bio"
   }, S.bio))));
 }

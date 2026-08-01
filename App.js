@@ -56,6 +56,9 @@ function App() {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     window.lucide && window.lucide.createIcons();
+    // Per-view title: helps browser history, tab identification, and SEO.
+    const t = view.id ? S.TABS.find(x => x.id === view.id) : null;
+    document.title = view.v === 'detail' ? `${view.item.t} · Sarthak's Site` : view.v === 'section' && t ? `${t.name} · Sarthak's Site` : "Sarthak's Site";
   }, [view]);
   React.useEffect(() => {
     // Back/forward across hash entries fires popstate; re-read the URL as truth.
@@ -81,7 +84,7 @@ function App() {
     id: view.id,
     item
   });
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("header", {
     className: "status"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wrap"
@@ -93,7 +96,7 @@ function App() {
     className: "mut"
   }, "INDEX")), /*#__PURE__*/React.createElement("div", {
     className: "r"
-  }, "SYS.TIME ", clock, " \xB7 IST UTC+5:30"))), view.v === 'cabinet' && /*#__PURE__*/React.createElement(window.Cabinet, {
+  }, "SYS.TIME ", clock, " \xB7 IST UTC+5:30"))), /*#__PURE__*/React.createElement("main", null, view.v === 'cabinet' && /*#__PURE__*/React.createElement(window.Cabinet, {
     onOpen: openSection,
     open: drawerOpen,
     onToggle: setDrawerOpen
@@ -128,9 +131,9 @@ function App() {
   }), view.v === 'detail' && /*#__PURE__*/React.createElement(window.DetailPage, {
     item: view.item,
     kind: view.id
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("footer", {
     className: "foot"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 SARTHAK MOHANTY"), /*#__PURE__*/React.createElement("span", null, "TECHNICAL BRUTALIST \xB7 FILE-CABINET KIT")))));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 SARTHAK MOHANTY"), /*#__PURE__*/React.createElement("span", null, "TECHNICAL BRUTALIST \xB7 FILE-CABINET KIT"))))));
 }
 // Per-section intro copy. Add an entry when you add a drawer.
 const SECTION_DESC = {
