@@ -96,12 +96,12 @@ window.SITE = {
     {
       id: 'qss', cat: 'DOMAIN', ic: 'book-open', t: 'The Quantitative Social Scientist',
       d: 'An intuition-first encyclopedia for quantitative social science — probability through inference, econometrics and causal inference.',
-      s: [['165', 'entries', 'o'], ['10', 'tracks']],
-      meta: [['Entries', '165'], ['Tracks', '10'], ['Format', 'Quarto'], ['Published', 'GitHub Pages'], ['Source', 'Private']],
+      s: [['150+', 'entries', 'o'], ['10', 'tracks']],
+      meta: [['Entries', '150+'], ['Tracks', '10'], ['Format', 'Quarto'], ['Published', 'GitHub Pages'], ['Source', 'Private']],
       links: [{ t: 'Read it', u: 'https://profsarthak.github.io/quant-social-scientist/', d: 'The live encyclopedia.' }],
       body: [
         'An intuition-first encyclopedia for quantitative social science research: basic probability through inference, econometrics, causal inference, and the statistical-versus-predictive divide. The aim is intuition before formalism.',
-        'One hundred and sixty-five entries in all — articles across ten tracks, from an overture and foundations through inference, regression, prediction, causal inference and field realities, plus standalone tracks on complexity, dataframes and machine learning, and appendices on the maths and computing.',
+        'More than 150 entries — articles across ten tracks, from an overture and foundations through inference, regression, prediction, causal inference and field realities, plus standalone tracks on complexity, dataframes and machine learning, and appendices on the maths and computing.',
         'Authored in Quarto and published to GitHub Pages. The published repository is build output — the authoring project is kept separate and private.',
       ],
     },
@@ -211,7 +211,7 @@ window.SITE = {
     { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0', u: 'https://github.com/profsarthak/news-digest' },
     { yr: '2026', t: 'temperaters', org: 'India temperature geospatial project — intra-urban land surface temperature at finer-than-block resolution. Decision log and design specs.', ext: '★ 0', u: 'https://github.com/profsarthak/temperaters' },
     { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature review underway.', ext: '★ 0', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam' },
-    { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 165 entries across ten tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
+    { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 150+ entries across ten tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
   ],
   // Clippings. `yr` carries the filing tag and `ext` the domain — the row shape
   // is the same as repos, so this needs no new component.
