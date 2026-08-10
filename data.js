@@ -78,6 +78,20 @@ window.SITE = {
       pull: 'Benign masochism — the taste for hardship you know can’t actually hurt you.',
     },
     {
+      id: 'kaggriculture', cat: 'COMPETITION', ic: 'bot', t: 'Kaggriculture',
+      d: 'My first agent that plays a game — a greedy planner for a two-farm Kaggle economy, and the instruments built to measure whether it was any good.',
+      s: [['49%', 'win rate', 'o'], ['720', 'moves / game']],
+      meta: [['Competition', 'Kaggle · Kaggriculture'], ['Status', 'Frozen · closes Sep 2026'], ['Standing', '#2075 / 3687 · 49% wins'], ['Agent', 'Greedy planner, ~1,500 lines'], ['Cadence', '720 decisions/game, <1s each'], ['Code', 'Private until the competition closes']],
+      links: [{ t: 'The competition', u: 'https://www.kaggle.com/competitions/kaggriculture', d: 'Kaggriculture on Kaggle.' }],
+      body: [
+        'My first autonomous agent: a program that plays a game on my behalf, thousands of times, while I’m asleep. It’s an entry for Kaggriculture, a Kaggle simulation competition — you write a function, upload it, and Kaggle runs it against everyone else’s.',
+        'Two neighbouring farms run for thirty in-game days, and whoever has more money at the end wins. The agent makes that farm’s decisions 720 times a game, in under a second each time, so the real currency isn’t money — it’s worker-turns, and most of the strategy is about what not to spend them on. Prices move when you sell, the market is shared with your opponent, and both farms are public, so you can watch a commitment coming days before it reaches market.',
+        'What I built is a greedy planner in three layers — decide what each patch of land is for, emit every job that wants doing with a priority, then hand jobs to workers discounted by how far they must walk. Around it sits the part I didn’t expect to dominate the work: instruments to test whether any given change actually helped.',
+        'The agent is mid-table, and the findings are the interesting part — most of them negative. Thirteen structural changes are documented as rejected against two adopted; small positives kept evaporating as I ran more games. Measuring, it turned out, was harder than building.',
+      ],
+      pull: 'Measuring turned out to be harder than building — almost everything that seemed obviously good wasn’t.',
+    },
+    {
       id: 'news-digest', cat: 'PUBLIC DOMAIN', ic: 'newspaper', t: 'News Digest',
       d: 'A daily news reader that groups the same story across outlets into one topic, then explains it in plain English.',
       s: [['~$0.33', '/day', 'o'], ['10', 'topics/day'], ['Next.js', '+ Claude']],
