@@ -113,9 +113,9 @@ window.SITE = {
       id: 'news-digest', cat: 'PUBLIC DOMAIN', ic: 'newspaper', t: 'News Digest',
       d: 'A daily news reader that groups the same story across outlets into one topic, then explains it in plain English.',
       s: [['~$0.33', '/day', 'o'], ['10', 'topics/day'], ['Next.js', '+ Claude']],
-      meta: [['Stack', 'Next.js 16 · TypeScript'], ['Styling', 'Tailwind v4'], ['Models', 'Claude Sonnet + Haiku'], ['Store', 'Neon Postgres'], ['Host', 'Vercel'], ['Schedule', 'Daily via GitHub Actions · paused since Jul 2026']],
+      meta: [['Stack', 'Next.js 16 · TypeScript'], ['Styling', 'Tailwind v4'], ['Models', 'Claude Sonnet + Haiku'], ['Store', 'Neon Postgres'], ['Host', 'Vercel'], ['Schedule', 'Daily via GitHub Actions · ran Jun–Jul 2026']],
       links: [
-        { t: 'Working demo', u: 'https://news-digest-theta.vercel.app/', d: 'The reader, with its archive of daily digests through 30 July 2026.' },
+        { t: 'Working demo', u: 'https://news-digest-theta.vercel.app/', d: 'The reader, with the full archive of its daily run, 9 June – 30 July 2026.' },
         { t: 'Repository', u: 'https://github.com/profsarthak/news-digest', d: 'Built to be forked — wire in your own key and database.' },
       ],
       body: [
