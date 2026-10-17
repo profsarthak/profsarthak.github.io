@@ -78,6 +78,20 @@ window.SITE = {
       pull: 'Benign masochism — the taste for hardship you know can’t actually hurt you.',
     },
     {
+      // Repo is private: no links (and no Repositories row) until a public,
+      // forkable version exists — the weekly routine will flag it when it does.
+      id: 'personal-financier', cat: 'WIP', ic: 'wallet', t: 'Personal Financier',
+      d: 'A personal financial advisor in R — it reads my bank statements, checks them to the paisa, and labels every transaction on the way to a month-end brief.',
+      s: [['99%', 'auto-labelled', 'o'], ['R', '+ DuckDB']],
+      meta: [['Status', 'Import & labelling working'], ['Next', 'The month-end brief'], ['Stack', 'R · DuckDB · testthat'], ['Brief', 'Quarto, interactive HTML'], ['Runs', 'Locally, on my laptop'], ['Code', 'Private for now']],
+      body: [
+        'A personal financial advisor, written in R. It reads my bank and credit-card statements, checks every figure to the paisa, labels each transaction, and — once finished — will produce a month-end brief: how much to move where, which card to use, what looks unusual, and whether I’m on track for my long-term goal.',
+        'Correctness comes first. Money is stored as whole paise in DuckDB, every printed balance has to equal the previous one plus the transaction, and card statements are checked against the issuer’s own totals. An import that doesn’t reconcile, repeats a file, or looks like a re-download writes nothing at all. Labelling runs on rules — channel, flow type, category — and on seven months of my own statements it labels 460 of 465 transactions automatically, leaving the rest in a review queue.',
+        'Still to come: mutual-fund statements, card alerts for the current billing cycle, AI-suggested categories for the review queue, and the brief itself — a Quarto report emailed to myself. Everything runs on my laptop; statements, amounts and credentials never enter the repository.',
+      ],
+      pull: 'If the balances don’t reconcile to the paisa, nothing gets written.',
+    },
+    {
       id: 'kaggriculture', cat: 'COMPETITION', ic: 'bot', t: 'Kaggriculture',
       d: 'My first agent that plays a game — a greedy planner for a two-farm Kaggle economy, and the instruments built to measure whether it was any good.',
       s: [['#7,184', 'of 10,148', 'o'], ['720', 'moves / game']],
@@ -99,14 +113,14 @@ window.SITE = {
       id: 'news-digest', cat: 'PUBLIC DOMAIN', ic: 'newspaper', t: 'News Digest',
       d: 'A daily news reader that groups the same story across outlets into one topic, then explains it in plain English.',
       s: [['~$0.33', '/day', 'o'], ['10', 'topics/day'], ['Next.js', '+ Claude']],
-      meta: [['Stack', 'Next.js 16 · TypeScript'], ['Styling', 'Tailwind v4'], ['Models', 'Claude Sonnet + Haiku'], ['Store', 'Neon Postgres'], ['Host', 'Vercel'], ['Schedule', 'Daily (GitHub Actions)']],
+      meta: [['Stack', 'Next.js 16 · TypeScript'], ['Styling', 'Tailwind v4'], ['Models', 'Claude Sonnet + Haiku'], ['Store', 'Neon Postgres'], ['Host', 'Vercel'], ['Schedule', 'Daily via GitHub Actions · paused since Jul 2026']],
       links: [
-        { t: 'Working demo', u: 'https://news-digest-theta.vercel.app/', d: 'The live reader — today’s digest.' },
+        { t: 'Working demo', u: 'https://news-digest-theta.vercel.app/', d: 'The reader, with its archive of daily digests through 30 July 2026.' },
         { t: 'Repository', u: 'https://github.com/profsarthak/news-digest', d: 'Built to be forked — wire in your own key and database.' },
       ],
       body: [
         'A personal, installable news reader. Once a day it pulls the last 24 hours from a set of outlets I choose, groups stories covering the same event into a single topic, and writes a plain-English explainer, a jargon glossary, and — for the biggest stories — web-search-backed context and implications. A separate Opinion tab curates a few op-eds with a neutral summary and which way each leans.',
-        'The compile takes about two minutes, which exceeds serverless timeouts, so the work is split: a daily GitHub Actions job does the heavy lifting and writes one row per day to Neon Postgres, and Vercel serves only the lightweight reader. Next.js 16 and TypeScript, Tailwind v4, Claude Sonnet for clustering and explainers, Haiku for op-ed selection.',
+        'The compile takes about two minutes, which exceeds serverless timeouts, so the work is split: a daily GitHub Actions job does the heavy lifting and writes one row per day to Neon Postgres, and Vercel serves only the lightweight reader. Next.js 16 and TypeScript, Tailwind v4, Claude Sonnet for clustering, explainers and picking the op-eds; Haiku for the web-search research and op-ed summaries.',
         'It is a personal project built to be forked — different countries, outlets, languages, models and budgets. Nothing runs until you wire in your own API key and database.',
       ],
       pull: 'Its reader runs on this design system — the same square corners, ink borders and mono chrome as this site.',
