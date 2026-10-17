@@ -80,14 +80,18 @@ window.SITE = {
     {
       id: 'kaggriculture', cat: 'COMPETITION', ic: 'bot', t: 'Kaggriculture',
       d: 'My first agent that plays a game — a greedy planner for a two-farm Kaggle economy, and the instruments built to measure whether it was any good.',
-      s: [['49%', 'win rate', 'o'], ['720', 'moves / game']],
-      meta: [['Competition', 'Kaggle · Kaggriculture'], ['Status', 'Frozen · closes Sep 2026'], ['Standing', '#2075 / 3687 · 49% wins'], ['Agent', 'Greedy planner, ~1,500 lines'], ['Cadence', '720 decisions/game, <1s each'], ['Code', 'Private until the competition closes']],
-      links: [{ t: 'The competition', u: 'https://www.kaggle.com/competitions/kaggriculture', d: 'Kaggriculture on Kaggle.' }],
+      s: [['#7,184', 'of 10,148', 'o'], ['720', 'moves / game']],
+      meta: [['Competition', 'Kaggle · Kaggriculture'], ['Status', 'Closed · Oct 2026'], ['Final standing', '#7,184 / 10,148'], ['At freeze (Aug)', '#2,075 / 3,687 · 49% wins'], ['Agent', 'Greedy planner, ~1,500 lines'], ['Cadence', '720 decisions/game, <1s each'], ['Code', 'Public · CC BY 4.0']],
+      links: [
+        { t: 'Repository', u: 'https://github.com/profsarthak/kaggriculture', d: 'The agent, its instruments, and 29 documents on what worked and what didn’t.' },
+        { t: 'The competition', u: 'https://www.kaggle.com/competitions/kaggriculture', d: 'Kaggriculture on Kaggle.' },
+      ],
       body: [
         'My first autonomous agent: a program that plays a game on my behalf, thousands of times, while I’m asleep. It’s an entry for Kaggriculture, a Kaggle simulation competition — you write a function, upload it, and Kaggle runs it against everyone else’s.',
         'Two neighbouring farms run for thirty in-game days, and whoever has more money at the end wins. The agent makes that farm’s decisions 720 times a game, in under a second each time, so the real currency isn’t money — it’s worker-turns, and most of the strategy is about what not to spend them on. Prices move when you sell, the market is shared with your opponent, and both farms are public, so you can watch a commitment coming days before it reaches market.',
         'What I built is a greedy planner in three layers — decide what each patch of land is for, emit every job that wants doing with a priority, then hand jobs to workers discounted by how far they must walk. Around it sits the part I didn’t expect to dominate the work: instruments to test whether any given change actually helped.',
-        'The agent is mid-table, and the findings are the interesting part — most of them negative. Thirteen structural changes are documented as rejected against two adopted; small positives kept evaporating as I ran more games. Measuring, it turned out, was harder than building.',
+        'I froze the agent in August, mid-table at the time; when the competition closed it finished 7,184th of 10,148. The findings are the interesting part — most of them negative. Thirteen structural changes are documented as rejected against two adopted; small positives kept evaporating as I ran more games. Measuring, it turned out, was harder than building.',
+        'With the competition over, the repository is public — the agent, the instruments, and twenty-nine documents on what worked, what didn’t, and the times I measured something wrong and had to take it back.',
       ],
       pull: 'Measuring turned out to be harder than building — almost everything that seemed obviously good wasn’t.',
     },
@@ -110,12 +114,12 @@ window.SITE = {
     {
       id: 'qss', cat: 'DOMAIN', ic: 'book-open', t: 'The Quantitative Social Scientist',
       d: 'An intuition-first encyclopedia for quantitative social science — probability through inference, econometrics and causal inference.',
-      s: [['150+', 'entries', 'o'], ['10', 'tracks']],
-      meta: [['Entries', '150+'], ['Tracks', '10'], ['Format', 'Quarto'], ['Published', 'GitHub Pages'], ['Source', 'Private']],
+      s: [['200+', 'entries', 'o'], ['10', 'tracks']],
+      meta: [['Entries', '200+'], ['Tracks', '10'], ['Format', 'Quarto'], ['Published', 'GitHub Pages'], ['Source', 'Private']],
       links: [{ t: 'Read it', u: 'https://profsarthak.github.io/quant-social-scientist/', d: 'The live encyclopedia.' }],
       body: [
         'An intuition-first encyclopedia for quantitative social science research: basic probability through inference, econometrics, causal inference, and the statistical-versus-predictive divide. The aim is intuition before formalism.',
-        'More than 150 entries — articles across ten tracks, from an overture and foundations through inference, regression, prediction, causal inference and field realities, plus standalone tracks on complexity, dataframes and machine learning, and appendices on the maths and computing.',
+        'More than 200 entries — articles across ten tracks, from an overture and foundations through inference, regression, prediction, causal inference and field realities, plus standalone tracks on complexity, dataframes and machine learning, and appendices on the maths and computing.',
         'Authored in Quarto and published to GitHub Pages. The published repository is build output — the authoring project is kept separate and private.',
       ],
     },
@@ -225,7 +229,8 @@ window.SITE = {
     { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0', u: 'https://github.com/profsarthak/news-digest' },
     { yr: '2026', t: 'temperaters', org: 'India temperature geospatial project — intra-urban land surface temperature at finer-than-block resolution. Decision log and design specs.', ext: '★ 0', u: 'https://github.com/profsarthak/temperaters' },
     { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature review underway.', ext: '★ 0', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam' },
-    { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 150+ entries across ten tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
+    { yr: '2026', t: 'kaggriculture', org: 'Agent for Kaggle’s Kaggriculture simulation: a greedy planner, the A/B and audit instruments that tested it, and 29 documents of findings — most of them negative.', ext: '★ 0', u: 'https://github.com/profsarthak/kaggriculture' },
+    { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 200+ entries across ten tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
   ],
   // Clippings. `yr` carries the filing tag and `ext` the domain — the row shape
   // is the same as repos, so this needs no new component.
