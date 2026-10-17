@@ -94,8 +94,8 @@ window.SITE = {
     {
       id: 'kaggriculture', cat: 'COMPETITION', ic: 'bot', t: 'Kaggriculture',
       d: 'My first agent that plays a game — a greedy planner for a two-farm Kaggle economy, and the instruments built to measure whether it was any good.',
-      s: [['#7,184', 'of 10,148', 'o'], ['720', 'moves / game']],
-      meta: [['Competition', 'Kaggle · Kaggriculture'], ['Status', 'Closed · Oct 2026'], ['Final standing', '#7,184 / 10,148'], ['At freeze (Aug)', '#2,075 / 3,687 · 49% wins'], ['Agent', 'Greedy planner, ~1,500 lines'], ['Cadence', '720 decisions/game, <1s each'], ['Code', 'Public · CC BY 4.0']],
+      s: [['#7,097', 'of 10,148', 'o'], ['720', 'moves / game']],
+      meta: [['Competition', 'Kaggle · Kaggriculture'], ['Status', 'Closed · Oct 2026'], ['Final standing', '#7,097 / 10,148 · score 509.8'], ['At freeze (Aug)', '#2,075 / 3,687 · 49% wins'], ['Agent', 'Greedy planner, ~1,500 lines'], ['Cadence', '720 decisions/game, <1s each'], ['Code', 'Public · CC BY 4.0']],
       links: [
         { t: 'Repository', u: 'https://github.com/profsarthak/kaggriculture', d: 'The agent, its instruments, and 29 documents on what worked and what didn’t.' },
         { t: 'The competition', u: 'https://www.kaggle.com/competitions/kaggriculture', d: 'Kaggriculture on Kaggle.' },
@@ -104,7 +104,7 @@ window.SITE = {
         'My first autonomous agent: a program that plays a game on my behalf, thousands of times, while I’m asleep. It’s an entry for Kaggriculture, a Kaggle simulation competition — you write a function, upload it, and Kaggle runs it against everyone else’s.',
         'Two neighbouring farms run for thirty in-game days, and whoever has more money at the end wins. The agent makes that farm’s decisions 720 times a game, in under a second each time, so the real currency isn’t money — it’s worker-turns, and most of the strategy is about what not to spend them on. Prices move when you sell, the market is shared with your opponent, and both farms are public, so you can watch a commitment coming days before it reaches market.',
         'What I built is a greedy planner in three layers — decide what each patch of land is for, emit every job that wants doing with a priority, then hand jobs to workers discounted by how far they must walk. Around it sits the part I didn’t expect to dominate the work: instruments to test whether any given change actually helped.',
-        'I froze the agent in August, mid-table at the time; when the competition closed it finished 7,184th of 10,148. The findings are the interesting part — most of them negative. Thirteen structural changes are documented as rejected against two adopted; small positives kept evaporating as I ran more games. Measuring, it turned out, was harder than building.',
+        'I froze the agent in August, almost exactly the median team at the time; when the competition closed it finished 7,097th of 10,148, below the median — the field nearly tripled over the final seven weeks while the agent stood still. The findings are the interesting part, and most of them are negative. Thirteen structural changes are documented as rejected against three adopted; small positives kept evaporating as I ran more games. Measuring, it turned out, was harder than building.',
         'With the competition over, the repository is public — the agent, the instruments, and twenty-nine documents on what worked, what didn’t, and the times I measured something wrong and had to take it back.',
       ],
       pull: 'Measuring turned out to be harder than building — almost everything that seemed obviously good wasn’t.',
