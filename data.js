@@ -52,19 +52,6 @@ window.SITE = {
 
   projects: [
     {
-      id: 'temperaters', cat: 'WIP', ic: 'map', t: 'Temperaters',
-      d: 'How much hotter one part of an Indian city runs than another — fine-scale temperature, joint with a friend.',
-      s: [['Scoping', 'phase'], ['Intra-urban', 'LST']],
-      meta: [['Status', 'Literature review'], ['Scale', 'Intra-urban'], ['Likely data', 'Satellite LST'], ['Region', 'India'], ['Collaboration', 'Joint, two authors']],
-      links: [{ t: 'Repository', u: 'https://github.com/profsarthak/temperaters', d: 'Decision log and design specs.' }],
-      body: [
-        'A friend and I are studying how temperature varies across India at fine spatial scale. The current focus is intra-urban: how much hotter one part of a city runs than another, most likely from satellite land surface temperature, at a resolution finer than IMD’s block-level data.',
-        'We are still in the literature-review phase, screening papers through a five-pool funnel — all climate-variable geospatial mapping, then temperature, then fine granularity, then within-city, then reusable method or data — before committing to an approach.',
-        'An earlier plan for an interactive city-level temperature map is paused rather than abandoned; its design is preserved in the decision log and may resume once the research direction settles. The Repositories drawer has the technical detail.',
-      ],
-      pull: 'The map is paused, not abandoned.',
-    },
-    {
       id: 'benign-masochism', cat: 'WIP', ic: 'gamepad-2', t: 'Benign Masochism on Steam',
       d: 'Why are survival-crafting games — and the studios releasing them — booming? An empirical study of a dread-driven cascade.',
       s: [['Pre-data', 'phase'], ['Two-stage', 'design']],
@@ -241,7 +228,6 @@ window.SITE = {
   ],
   repos: [
     { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0', u: 'https://github.com/profsarthak/news-digest' },
-    { yr: '2026', t: 'temperaters', org: 'India temperature geospatial project — intra-urban land surface temperature at finer-than-block resolution. Decision log and design specs.', ext: '★ 0', u: 'https://github.com/profsarthak/temperaters' },
     { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature review underway.', ext: '★ 0', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam' },
     { yr: '2026', t: 'kaggriculture', org: 'Agent for Kaggle’s Kaggriculture simulation: a greedy planner, the A/B and audit instruments that tested it, and 29 documents of findings — most of them negative.', ext: '★ 0', u: 'https://github.com/profsarthak/kaggriculture' },
     { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 200+ entries across ten tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
