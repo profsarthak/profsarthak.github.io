@@ -216,7 +216,7 @@ window.SITE = {
   // `note` is the one-liner shown under the org stub. Experience-only; list
   // rows elsewhere (repos) omit it.
   experience: [
-    { yr: '2026 —', t: 'Senior Analyst, Methods and Research Innovation', org: 'Busara Center for Behavioural Economics · Remote', ext: 'RESEARCH', note: 'Statistical modelling, computational analysis, and causal designs across development-sector interventions in the Global South.' },
+    { yr: '2026 —', t: 'Senior Analyst, Methods and Research Innovation', org: 'Busara Center for Behavioural Economics · Remote', ext: 'RESEARCH', note: 'Lead impact evaluations of academic and civil-society interventions, using quantitative and computational methods to build academic-grade evidence for the social-impact sector.' },
     { yr: '2025–26', t: 'Research Intern, Strengthening Child and Maternal Nutrition Project', org: 'Centre for Social and Behaviour Change · Remote', ext: 'RESEARCH', note: 'Analysed child-feeding behaviours in rural Bihar and co-authored two policy reports, presented to the Gates Foundation and Government of Bihar.' },
     { yr: '2025', t: 'Teaching Assistant, ECO-3704 Statistical Models', org: 'Economics Department, Ashoka University · Sonipat', ext: 'TEACHING', note: 'Ran weekly R coding support and materials for 35+ students in an advanced statistical-modelling elective.' },
     { yr: '2025', t: 'Teaching Assistant, PSY-3059 Group Processes', org: 'Psychology Department, Ashoka University · Sonipat', ext: 'TEACHING', note: 'Built rubrics and question banks for 30+ students; lectured on the social identity theory of leadership, and on beliefs, behaviours and attitudes toward the environment.' },
