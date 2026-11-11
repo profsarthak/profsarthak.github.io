@@ -82,15 +82,15 @@ window.SITE = {
     {
       id: 'wip-brain', cat: 'VISUALISATION', ic: 'brain-circuit', t: 'Progress Through Works',
       d: 'An interactive 2D/3D map of my notes on Works in Progress — every essay, the mechanisms it argues for, and the fields they belong to.',
-      s: [['763', 'mechanisms', 'o'], ['139', 'essays'], ['22', 'domains']],
-      meta: [['Source', 'Works in Progress, issues 1–20'], ['Notes', '924 · 4,465 links'], ['Fields', '6, by modularity clustering'], ['Views', '2D diagram · 3D brain · timeline'], ['Stack', 'Python (stdlib) · 3d-force-graph'], ['Host', 'GitHub Pages']],
+      s: [['1,026', 'mechanisms', 'o'], ['199', 'essays'], ['22', 'domains']],
+      meta: [['Source', 'Works in Progress, issues 1–26'], ['Notes', '1,247 · 6,228 links'], ['Fields', '6, by modularity clustering'], ['Views', '2D diagram · 3D brain · timeline'], ['Stack', 'Python (stdlib) · 3d-force-graph'], ['Host', 'GitHub Pages']],
       links: [
         { t: 'Explore it', u: 'https://profsarthak.github.io/wip-brain/', d: 'The live map — press / to search; every note has a shareable link.' },
         { t: 'Repository', u: 'https://github.com/profsarthak/wip-brain', d: 'The publish script and the static page.' },
       ],
       body: [
         'A map of my second brain. I read Works in Progress — the magazine of long essays on progress, and the first entry in my Clippings drawer — into an Obsidian vault in three layers: a note for each essay, a note for each transferable mechanism it argues for, and the broad domains those mechanisms belong to. This turns the vault into a diagram you can pan and zoom, then lift into a 3D brain you can spin.',
-        'Twenty issues in, it holds 139 essays, 763 mechanisms and 22 domains, joined by 4,465 links. The domains group into six fields, found by modularity clustering on how densely they cross-link. Click any note for its core claim, a link to the original essay, and a small local graph of its neighbours; press play to watch the brain grow issue by issue.',
+        'Twenty-six issues in, it holds 199 essays, 1,026 mechanisms and 22 domains, joined by 6,228 links. The domains group into six fields, found by modularity clustering on how densely they cross-link. Click any note for its core claim, a link to the original essay, and a small local graph of its neighbours; press play to watch the brain grow issue by issue.',
         'Updating it is one command: a standard-library Python script reads the vault — never writing to it — rebuilds the graph and pushes it. Only titles, links and each note’s opening paragraph are published; the full notes stay private. It’s drawn in the same design system as this site: ink on bone paper, one orange accent.',
       ],
       pull: 'Every mechanism is one reusable causal claim.',
@@ -132,12 +132,12 @@ window.SITE = {
     {
       id: 'qss', cat: 'DOMAIN', ic: 'book-open', t: 'The Quantitative Social Scientist',
       d: 'An intuition-first encyclopedia for quantitative social science — probability through inference, econometrics and causal inference.',
-      s: [['200+', 'entries', 'o'], ['10', 'tracks']],
-      meta: [['Entries', '200+'], ['Tracks', '10'], ['Format', 'Quarto'], ['Published', 'GitHub Pages'], ['Source', 'Private']],
+      s: [['200+', 'entries', 'o'], ['11', 'tracks']],
+      meta: [['Entries', '200+'], ['Tracks', '11'], ['Format', 'Quarto'], ['Published', 'GitHub Pages'], ['Source', 'Private']],
       links: [{ t: 'Read it', u: 'https://profsarthak.github.io/quant-social-scientist/', d: 'The live encyclopedia.' }],
       body: [
         'An intuition-first encyclopedia for quantitative social science research: basic probability through inference, econometrics, causal inference, and the statistical-versus-predictive divide. The aim is intuition before formalism.',
-        'More than 200 entries — articles across ten tracks, from an overture and foundations through inference, regression, prediction, causal inference and field realities, plus standalone tracks on complexity, dataframes and machine learning, and appendices on the maths and computing.',
+        'More than 200 entries — articles across eleven tracks: a spine running from an overture and foundations through inference, regression, predictive modelling and causal inference to doing research in the world, plus standalone tracks on complexity science, dataframes, machine learning and meta-research, with appendices on the maths, computing and advanced probability.',
         'Authored in Quarto and published to GitHub Pages. The published repository is build output — the authoring project is kept separate and private.',
       ],
     },
@@ -247,8 +247,8 @@ window.SITE = {
     { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0', u: 'https://github.com/profsarthak/news-digest' },
     { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature first pass done, pre-registration next.', ext: '★ 0', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam' },
     { yr: '2026', t: 'kaggriculture', org: 'Agent for Kaggle’s Kaggriculture simulation: a greedy planner, the A/B and audit instruments that tested it, and 29 documents of findings — most of them negative.', ext: '★ 0', u: 'https://github.com/profsarthak/kaggriculture' },
-    { yr: '2026', t: 'wip-brain', org: 'Interactive 2D/3D map of my Works in Progress Obsidian vault — 139 essays, 763 mechanisms, 22 domains. Standard-library Python publisher and a static 3d-force-graph page.', ext: '★ 0', u: 'https://github.com/profsarthak/wip-brain' },
-    { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 200+ entries across ten tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
+    { yr: '2026', t: 'wip-brain', org: 'Interactive 2D/3D map of my Works in Progress Obsidian vault — 199 essays, 1,026 mechanisms, 22 domains. Standard-library Python publisher and a static 3d-force-graph page.', ext: '★ 0', u: 'https://github.com/profsarthak/wip-brain' },
+    { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 200+ entries across eleven tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
   ],
   // Clippings. `yr` carries the filing tag and `ext` the domain — the row shape
   // is the same as repos, so this needs no new component.
