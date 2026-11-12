@@ -66,16 +66,18 @@ window.SITE = {
       pull: 'Benign masochism — the taste for hardship you know can’t actually hurt you.',
     },
     {
-      // Repo is private: no links (and no Repositories row) until a public,
-      // forkable version exists — the weekly routine will flag it when it does.
+      // The working repo (personal-financier) stays private; the public, forkable
+      // version is personal-finance-briefs. Keep bank and card-issuer names off this card.
       id: 'personal-financier', cat: 'WIP', ic: 'wallet', t: 'Personal Financier',
       d: 'A personal financial advisor in R — it reads my bank and card statements, checks them to the paisa, labels every transaction, and emails me a month-end brief.',
       s: [['98%', 'auto-labelled', 'o'], ['R', '+ DuckDB']],
-      meta: [['Status', 'Running, automated monthly'], ['Output', 'Month-end brief, emailed'], ['Brief', 'Self-contained HTML, phone-ready'], ['Stack', 'R · DuckDB · testthat'], ['Runs', 'Locally, on my laptop'], ['Code', 'Private for now']],
+      meta: [['Status', 'Running, automated monthly'], ['Output', 'Month-end brief, emailed'], ['Brief', 'Self-contained HTML, phone-ready'], ['Stack', 'R · DuckDB · testthat'], ['Runs', 'Locally, on my laptop'], ['Code', 'Public · MIT']],
+      links: [{ t: 'Repository', u: 'https://github.com/profsarthak/personal-finance-briefs', d: 'The public version, built to be forked — a setup script, a doctor that checks the setup, and tests on made-up statements.' }],
       body: [
-        'A personal financial advisor, written in R. It reads my bank and credit-card statements, checks every figure to the paisa, labels each transaction, and emails me a month-end brief: how much to move where, which card to use, what looks unusual, and whether I’m on track for my long-term goal.',
+        'A personal financial advisor, written in R. It reads my bank and credit-card statements, checks every figure to the paisa, labels each transaction, and emails me a month-end brief: how much to move where, which card to use, and what looks unusual.',
         'Correctness comes first. Money is stored as whole paise in DuckDB, every printed balance has to equal the previous one plus the transaction, and card statements are checked against the issuer’s own totals. An import that doesn’t reconcile, repeats a file, or looks like a re-download writes nothing at all. On its first full run, rules labelled 594 of 606 real transactions; I reviewed the other 12 by hand in the console, and those answers become labels the rules never overwrite.',
-        'Around that core: card bills linked to the statements they pay, rewards earned against the best card I could have used, and a fun-money section that matches what I spend on to listed companies, upcoming IPOs and draft filings. It runs itself — statements land in a Drive inbox, a scheduled task picks them up, and the brief goes out once everything is in. Still to come: mutual-fund statements and AI-suggested categories for the review queue. Statements, amounts and credentials never enter the repository.',
+        'Around that core: card bills linked to the statements they pay, rewards earned against the best card I could have used, and a fun-money section that matches what I spend on to listed companies, upcoming IPOs and draft filings. It runs itself — statements land in a Drive inbox, a scheduled task picks them up, and the brief goes out once everything is in. Still to come: mutual-fund statements — and with them, whether I’m on track for my long-term goal — and AI-suggested categories for the review queue.',
+        'The code is public and built to be forked. It reads the statement formats my own accounts use; another bank or card needs its own reader, and the repository shows the pattern. Statements, amounts and credentials never enter it — the tests run on made-up statements.',
       ],
       pull: 'If the balances don’t reconcile to the paisa, nothing gets written.',
     },
@@ -246,6 +248,7 @@ window.SITE = {
   repos: [
     { yr: '2026', t: 'news-digest', org: 'Daily PWA news reader: clusters the same story across outlets, then explains it. Next.js 16 + Claude, GitHub Actions → Neon → Vercel.', ext: '★ 0', u: 'https://github.com/profsarthak/news-digest' },
     { yr: '2026', t: 'exploring-benign-masochism-on-steam', org: 'R pipeline for an empirical study of why survival-crafting games, and their releases, are booming. Pre-data; literature first pass done, pre-registration next.', ext: '★ 0', u: 'https://github.com/profsarthak/exploring-benign-masochism-on-steam' },
+    { yr: '2026', t: 'personal-finance-briefs', org: 'Personal Financier, forkable: R + DuckDB. Reconciles Indian bank and card statements to the paisa, labels every transaction, and emails a month-end brief.', ext: '★ 0', u: 'https://github.com/profsarthak/personal-finance-briefs' },
     { yr: '2026', t: 'kaggriculture', org: 'Agent for Kaggle’s Kaggriculture simulation: a greedy planner, the A/B and audit instruments that tested it, and 29 documents of findings — most of them negative.', ext: '★ 0', u: 'https://github.com/profsarthak/kaggriculture' },
     { yr: '2026', t: 'wip-brain', org: 'Interactive 2D/3D map of my Works in Progress Obsidian vault — 199 essays, 1,026 mechanisms, 22 domains. Standard-library Python publisher and a static 3d-force-graph page.', ext: '★ 0', u: 'https://github.com/profsarthak/wip-brain' },
     { yr: '2026', t: 'quant-social-scientist', org: 'Rendered GitHub Pages site for The Quantitative Social Scientist — 200+ entries across eleven tracks and appendices, built from a private Quarto source.', ext: '★ 0', u: 'https://github.com/profsarthak/quant-social-scientist' },
